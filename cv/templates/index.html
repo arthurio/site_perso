@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+    <meta name="Description" content="Site personnel d'Arthur Rio, élève ingènieur en informatique à Polytech' Nantes / Arthur Rio personal website, computer engineer student at Polytech' Nantes, France" />
+    <meta name="Arthur Rio" content="Arthur Rio">
+    <meta name="keywords" content="Arthur, Rio, Nantes, Polytech, développeur, ingénieur, logiciel, France, programmer, software, engineer, student,">
+    <meta name="robots" content="all">
+    <meta name="google-site-verification" content="5CfLR-2mUfFQYMOMyZ4ZqC_QJUw3AQbzBK1tJE-A29o" />
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root of 	your domain and delete these references -->
+	<link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon/computer.png">
+
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css">
+</head>
+<body>
+<noscript>
+    <div id="noscript">
+        Your web browser must have JavaScript enabled in order for this application to display correctly.
+        <br><br>
+        Votre navigateur doit avoir l'option Javascript activ&eacute;e pour afficher correctement ce site Web.
+    </div>
+    <div style="position: absolute; left: 53%; margin-left: -11em; margin-top: 170px; font-family: sans-serif">
+        <table>
+            <tr>
+                <td rowspan='6'><img width='100' height='128' alt='my picture' src='{{ STATIC_URL }}img/pictures/picture.jpg' /></td>
+                <td style='padding-left: 5px'>Arthur Rio</td>
+            </tr>
+            <tr>
+                <td style='padding-left: 5px'>311 Cowper Street, Palo Alto</td>
+            </tr>
+            <tr>
+                <td style='padding-left: 5px'>California, 94025</td>
+            </tr>
+            <tr>
+                <td style='padding-left: 5px'>United States of America</td>
+            </tr>
+            <tr>
+                <td style='padding-left: 5px'>+33 632 911 654</td>
+            </tr>
+            <tr>
+                <td style='padding-left: 5px'>
+                    <a href='http://www.facebook.com/arthur.rio' target='_blank' title='Follow Arthur Rio on Facebook'><img src='{{ STATIC_URL }}img/link/facebook.png' /></a>
+                    <a href='http://www.twitter.com/arthur_rio' target='_blank' title='Follow Arthur Rio on Twitter'><img src='{{ STATIC_URL }}img/link/twitter.png' /></a> 
+                    <a href='skype:arthur.rio?call' title='Call Arthur Rio on Skype'><img src='{{ STATIC_URL }}/img/link/skype.png' /></a>
+                    <a href='http://www.viadeo.com/fr/profile/arthur.rio' target='_blank' title='See Arthur Rio Viadeo profile'><img width='16' height='16' src='{{ STATIC_URL }}img/link/viadeo.png' /></a>
+                    <a href='http://fr.linkedin.com/in/arthurio' target='_blank' title='See Arthur Rio LinkedIn profile'><img width='16' height='16' src='{{ STATIC_URL }}img/link/linkedin.png' /></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</noscript>
+{% include "body.html" %}
+
+<script src="{{ STATIC_URL}}js/jquery.js" type="text/javascript"></script>
+<script src="{{ STATIC_URL}}js/script.js" type="text/javascript"></script>        
+</body>
+</html>
