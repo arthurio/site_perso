@@ -1,0 +1,10 @@
+{
+    "contact_panel":"Contact",
+    "resume_panel":"Resume",
+
+    "dojo": {
+        "loading_message":"&lt;span class='dijitContentPaneLoading'&gt;Loading...&lt;/span&gt;",
+        "error_message": "&lt;span class='dijitContentPaneError'&gt;An error occured&lt;/span&gt;"
+    }
+
+}

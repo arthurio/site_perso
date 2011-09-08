@@ -13,7 +13,7 @@
 
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css">
 </head>
-<body>
+<body class="claro" dvFlowLayout="true" data-davinci-ws="collapse">
 <noscript>
     <div id="noscript">
         Your web browser must have JavaScript enabled in order for this application to display correctly.
@@ -51,8 +51,26 @@
     </div>
 </noscript>
 {% include "body.html" %}
+{% include "popup.html" %}
 
-<script src="{{ STATIC_URL}}js/jquery.js" type="text/javascript"></script>
+<style type="text/css">
+@import "{{ STATIC_URL }}themes/claro/claro.css";
+@import "{{ STATIC_URL }}lib/dojo/dojo/resources/dojo.css";
+@import "{{ STATIC_URL }}lib/dojo/dojo/resources/dojo.css";
+@import "{{ STATIC_URL }}lib/jquery-ui/css/smoothness/jquery-ui-1.8.11.custom.css";
+</style>
+<script type="text/javascript" djConfig="parseOnLoad: true" src="{{ STATIC_URL }}lib/dojo/dojo/dojo.js"></script>
+<script type="text/javascript">
+    dojo.require('dijit.layout.AccordionContainer');
+    dojo.require('dijit.layout.ContentPane');
+    dojo.require('dijit.TitlePane');
+    dojo.require('dijit.layout.BorderContainer');    
+</script>
+<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script>!window.jQuery && document.write('<script src="{{ STATIC_URL }}lib/jquery-ui/jquery-1.4.4.min.js"><\/script>')</script>
+
+<script src="{{ STATIC_URL}}lib/jquery-ui/jquery-ui-1.8.11.custom.min.js" type="text/javascript"></script>
 <script src="{{ STATIC_URL}}js/script.js" type="text/javascript"></script>        
 </body>
 </html>

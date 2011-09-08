@@ -1,0 +1,43 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Metadata folder from Titanium #
+#################################
+mobile/TitaniumWorkspace/.metadata/
+.fastdev.lock
+build/
+
+# Build folder #
+############
+mobile/SolidPunch.xcodeproj/*.mode1v3
+mobile/SolidPunch.xcodeproj/*.pbxuser
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+
+# OS generated files #
+######################
+.DS_Store?
+.DS_Store
+
+*.swp
+*.pyc

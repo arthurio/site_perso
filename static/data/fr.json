@@ -1,5 +1,11 @@
 {
+    "contact_panel":"Contact",
+    "resume_panel":"Curriculum Vittae",
 
+    "dojo": {
+        "loading_message":"&lt;span class='dijitContentPaneLoading'&gt;Chargement...&lt;/span&gt;",
+        "error_message": "&lt;span class='dijitContentPaneError'&gt;Une erreur est survenue&lt;/span&gt;"
+    }
 
 
 }

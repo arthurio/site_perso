@@ -1,4 +1,75 @@
-<div id='body' class='overlay'>
-    <div id="name"></div>
-    <div id="email"></div>
+<div id="border_container"
+     dojoType="dijit.layout.BorderContainer" 
+     design="sidebar" persist="false" gutters="false">
+
+<!--*****************************************-->
+<!--               PANEL TOP                 -->
+<!--*****************************************-->
+    <div id="panel_top"
+         dojoType="dijit.layout.ContentPane" 
+         extractContent="false" preventCache="false" preload="false" 
+         refreshOnShow="false" 
+         loadingMessage="{{ data.dojo.loading_message }}" 
+         errorMessage="{{ data.dojo.error_message }}" 
+         region="top" 
+         splitter="false" style="height: 50px;" doLayout="false">
+         {% include "panel_top.html" %}
+    </div>
+<!--*****************************************-->
+<!--               END PANEL TOP             -->
+<!--*****************************************-->
+
+<!--*****************************************-->
+<!--               PANEL BOTTOM              -->
+<!--*****************************************-->
+    <div id="panel_bottom"
+         dojoType="dijit.layout.ContentPane"
+         extractContent="false" preventCache="false" preload="false" 
+         refreshOnShow="false" 
+         loadingMessage="{{ data.dojo.loading_message }}" 
+         errorMessage="{{ data.dojo.error_message }}" 
+         region="bottom" 
+         splitter="false" style="height: 50px;" doLayout="false">
+         {% include "panel_bottom.html" %}
+    </div>
+<!--*****************************************-->
+<!--             END PANEL BOTTOM            -->
+<!--*****************************************-->
+
+
+<!--*****************************************-->
+<!--                 PANEL LEFT              -->
+<!--*****************************************-->
+    <div id="panel_left"
+         dojoType="dijit.layout.ContentPane" 
+         extractContent="false" preventCache="false" preload="false" 
+         refreshOnShow="false" 
+         loadingMessage="{{ data.dojo.loading_message }}" 
+         errorMessage="{{ data.dojo.error_message }}" 
+         region="left" 
+         splitter="false" style="width: 250px;" doLayout="false">
+         {% include "panel_left.html" %}
+    </div>
+<!--*****************************************-->
+<!--               END PANEL LEFT            -->
+<!--*****************************************-->
+
+
+<!--*****************************************-->
+<!--                 PANEL CENTER            -->
+<!--*****************************************-->
+    <div id="panel_center"
+         dojoType="dijit.layout.ContentPane" 
+         extractContent="false" preventCache="false" preload="false" 
+         refreshOnShow="false" 
+         loadingMessage="{{ data.dojo.loading_message }}" 
+         errorMessage="{{ data.dojo.error_message }}" 
+         region="center" 
+         splitter="false" doLayout="false">
+         {% include "panel_center.html" %}
+    </div>
+<!--*****************************************-->
+<!--              END PANEL CENTER           -->
+<!--*****************************************-->
+
 </div>
