@@ -1,6 +1,0 @@
-//>>built
-define(({
-	deleteButton: "[ลบ]"
-})
-
-);

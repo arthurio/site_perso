@@ -1,10 +1,18 @@
 {
     "contact_panel":"Contact",
     "resume_panel":"Resume",
-
-    "dojo": {
-        "loading_message":"&lt;span class='dijitContentPaneLoading'&gt;Loading...&lt;/span&gt;",
-        "error_message": "&lt;span class='dijitContentPaneError'&gt;An error occured&lt;/span&gt;"
+    "nav": ["Home","Resume","Contact"],
+    "lang":"English",
+    "intro":[
+        "<center><a target=\"_blank\" href=\"http://www.facebook.com/PunchTabbers\"><div class=\"facebook_pt\"></div><br>Check PunchTab on Facebook</a></center>",
+        "<center><a target=\"_blank\" href=\"http://twitter.com/arthur_rio\"><div class=\"twitter_follow\"></div><br>Follow me on Twitter</a></center>",
+        "<center><a target=\"_blank\" href=\"http://www.punchtab.com\"><div class=\"punchtab_website\"></div><br>Build a loyalty program<br>for your website or blog in minutes</a><center>"
+        ],
+    "contact": {
+        "first_name":"First name*",
+        "last_name":"Last name*",
+        "email":"Email address*",
+        "message":"Message*",
+        "button":"Submit"
     }
-
 }

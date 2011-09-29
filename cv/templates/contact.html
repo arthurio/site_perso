@@ -1,0 +1,33 @@
+<div id="bamboo_bg">
+</div>
+<div id="bathrock_bg">
+</div>
+<form action='mail' name='mail'>
+    <table>
+        <tr>
+            <td name="first_name" class="indent">{{ data.contact.first_name }}</td>
+            <td class='separator'></td>
+            <td name="last_name" class="indent">{{ data.contact.last_name }}</td>
+        </tr>
+        <tr>
+            <td><input type="text" name="first_name"/></td>
+            <td class='separator'></td>
+            <td><input type="text" name="last_name"/></td>
+        </tr>
+        <tr>
+            <td colspan="3" name="email" class="indent">{{ data.contact.email }}</td>
+        </tr>
+        <tr>
+            <td colspan="3"><input type="text" name="email"/></td>
+        </tr>
+        <tr>
+            <td colspan="3" name="message" class="indent">{{ data.contact.message }}</td>
+        </tr>
+        <tr>
+            <td colspan="3"><textarea name="message" rows="10" width="100%"></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="3"><center><button class="red_button" type="submit">{{ data.contact.button }}</button></center></td>
+        </tr>
+    </table>
+</form>

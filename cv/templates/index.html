@@ -13,64 +13,87 @@
 
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css">
 </head>
-<body class="claro" dvFlowLayout="true" data-davinci-ws="collapse">
+<body>
+<script>
+
+function convertToString(html)
+{
+  html = html.replace(/&/g, "&amp;");
+  html = html.replace(/>/g, "&gt;");
+  html = html.replace(/</g, "&lt;");
+  html = html.replace(/"/g, "&quot;");
+  html = html.replace(/'/g, "&#039;");
+  return str;
+}
+
+
+function convertToHtml(str)
+{
+  str = str.replace(/&amp;/g,'&');
+  str = str.replace(/&gt;/g,'>');
+  str = str.replace(/&lt;/g,'<');
+  str = str.replace(/&quot;/g,'"');
+  str = str.replace(/&#039;/g,"'");
+  return str;
+}
+
+    var intro = new Array();
+    {% if data and data.intro %}
+    var i = 0;
+    {% for text in data.intro %}
+        intro[i] = convertToHtml("{{ text }}");
+        i++;
+    {% endfor %}
+    {% endif %}
+</script>
 <noscript>
     <div id="noscript">
-        Your web browser must have JavaScript enabled in order for this application to display correctly.
-        <br><br>
-        Votre navigateur doit avoir l'option Javascript activ&eacute;e pour afficher correctement ce site Web.
-    </div>
-    <div style="position: absolute; left: 53%; margin-left: -11em; margin-top: 170px; font-family: sans-serif">
-        <table>
-            <tr>
-                <td rowspan='6'><img width='100' height='128' alt='my picture' src='{{ STATIC_URL }}img/pictures/picture.jpg' /></td>
-                <td style='padding-left: 5px'>Arthur Rio</td>
-            </tr>
-            <tr>
-                <td style='padding-left: 5px'>311 Cowper Street, Palo Alto</td>
-            </tr>
-            <tr>
-                <td style='padding-left: 5px'>California, 94025</td>
-            </tr>
-            <tr>
-                <td style='padding-left: 5px'>United States of America</td>
-            </tr>
-            <tr>
-                <td style='padding-left: 5px'>+33 632 911 654</td>
-            </tr>
-            <tr>
-                <td style='padding-left: 5px'>
-                    <a href='http://www.facebook.com/arthur.rio' target='_blank' title='Follow Arthur Rio on Facebook'><img src='{{ STATIC_URL }}img/link/facebook.png' /></a>
-                    <a href='http://www.twitter.com/arthur_rio' target='_blank' title='Follow Arthur Rio on Twitter'><img src='{{ STATIC_URL }}img/link/twitter.png' /></a> 
-                    <a href='skype:arthur.rio?call' title='Call Arthur Rio on Skype'><img src='{{ STATIC_URL }}/img/link/skype.png' /></a>
-                    <a href='http://www.viadeo.com/fr/profile/arthur.rio' target='_blank' title='See Arthur Rio Viadeo profile'><img width='16' height='16' src='{{ STATIC_URL }}img/link/viadeo.png' /></a>
-                    <a href='http://fr.linkedin.com/in/arthurio' target='_blank' title='See Arthur Rio LinkedIn profile'><img width='16' height='16' src='{{ STATIC_URL }}img/link/linkedin.png' /></a>
-                </td>
-            </tr>
-        </table>
+        <div class="message_error">
+            Your web browser must have JavaScript enabled in order for this application to display correctly.
+            <br><br>
+            Votre navigateur doit avoir l'option Javascript activ&eacute;e pour afficher correctement ce site Web.
+        </div>
+        <div class="contact">
+            <table>
+                <tr>
+                    <td rowspan='6'><img width='100' height='128' alt='my picture' src='{{ STATIC_URL }}img/pictures/picture.jpg' /></td>
+                    <td style='padding-left: 5px'>Arthur Rio</td>
+                </tr>
+                <tr>
+                    <td style='padding-left: 5px'>311 Cowper Street, Palo Alto</td>
+                </tr>
+                <tr>
+                    <td style='padding-left: 5px'>California, 94025</td>
+                </tr>
+                <tr>
+                    <td style='padding-left: 5px'>United States of America</td>
+                </tr>
+                <tr>
+                    <td style='padding-left: 5px'>+33 632 911 654</td>
+                </tr>
+                <tr>
+                    <td style='padding-left: 5px'>
+                        <a href='http://www.facebook.com/arthur.rio' target='_blank' title='Follow Arthur Rio on Facebook'><img src='{{ STATIC_URL }}img/link/facebook.png' /></a>
+                        <a href='http://www.twitter.com/arthur_rio' target='_blank' title='Follow Arthur Rio on Twitter'><img src='{{ STATIC_URL }}img/link/twitter.png' /></a> 
+                        <a href='skype:arthur.rio?call' title='Call Arthur Rio on Skype'><img src='{{ STATIC_URL }}/img/link/skype.png' /></a>
+                        <a href='http://www.viadeo.com/fr/profile/arthur.rio' target='_blank' title='See Arthur Rio Viadeo profile'><img width='16' height='16' src='{{ STATIC_URL }}img/link/viadeo.png' /></a>
+                        <a href='http://fr.linkedin.com/in/arthurio' target='_blank' title='See Arthur Rio LinkedIn profile'><img width='16' height='16' src='{{ STATIC_URL }}img/link/linkedin.png' /></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 </noscript>
+
+
 {% include "body.html" %}
 {% include "popup.html" %}
 
-<style type="text/css">
-@import "{{ STATIC_URL }}themes/claro/claro.css";
-@import "{{ STATIC_URL }}lib/dojo/dojo/resources/dojo.css";
-@import "{{ STATIC_URL }}lib/dojo/dojo/resources/dojo.css";
-@import "{{ STATIC_URL }}lib/jquery-ui/css/smoothness/jquery-ui-1.8.11.custom.css";
-</style>
-<script type="text/javascript" djConfig="parseOnLoad: true" src="{{ STATIC_URL }}lib/dojo/dojo/dojo.js"></script>
-<script type="text/javascript">
-    dojo.require('dijit.layout.AccordionContainer');
-    dojo.require('dijit.layout.ContentPane');
-    dojo.require('dijit.TitlePane');
-    dojo.require('dijit.layout.BorderContainer');    
-</script>
 <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 <script>!window.jQuery && document.write('<script src="{{ STATIC_URL }}lib/jquery-ui/jquery-1.4.4.min.js"><\/script>')</script>
 
-<script src="{{ STATIC_URL}}lib/jquery-ui/jquery-ui-1.8.11.custom.min.js" type="text/javascript"></script>
+<script src="{{ STATIC_URL}}js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
 <script src="{{ STATIC_URL}}js/script.js" type="text/javascript"></script>        
 </body>
 </html>

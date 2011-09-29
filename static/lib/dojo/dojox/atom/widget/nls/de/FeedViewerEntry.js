@@ -1,4 +1,0 @@
-//>>built
-define(({
-	deleteButton: "[Löschen]"
-}));
