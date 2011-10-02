@@ -2,23 +2,16 @@
 </div>
 <div id="bathrock_bg">
 </div>
-<form action='mail' name='mail'>
+<form action='{% url mail %}' name='mail'>
+    {% csrf_token %}
     <table>
         <tr>
-            <td name="first_name" class="indent">{{ data.contact.first_name }}</td>
+            <td><input class="empty" value="{{ data.contact.first_name }}" type="text" name="first_name"/><img src="{{ STATIC_URL }}img/icons/icon-error.png" name="first_name" class="error"/></td>
             <td class='separator'></td>
-            <td name="last_name" class="indent">{{ data.contact.last_name }}</td>
+            <td><input class="empty" value="{{ data.contact.last_name }}" type="text" name="last_name"/><img src="{{ STATIC_URL }}img/icons/icon-error.png" name="last_name" class="error"/></td>
         </tr>
         <tr>
-            <td><input type="text" name="first_name"/></td>
-            <td class='separator'></td>
-            <td><input type="text" name="last_name"/></td>
-        </tr>
-        <tr>
-            <td colspan="3" name="email" class="indent">{{ data.contact.email }}</td>
-        </tr>
-        <tr>
-            <td colspan="3"><input type="text" name="email"/></td>
+            <td colspan="3"><input class="empty" value="{{ data.contact.email }}" type="text" name="email"/><img src="{{ STATIC_URL }}img/icons/icon-error.png" name="email" class="error"/></td>
         </tr>
         <tr>
             <td colspan="3" name="message" class="indent">{{ data.contact.message }}</td>
@@ -30,4 +23,8 @@
             <td colspan="3"><center><button class="red_button" type="submit">{{ data.contact.button }}</button></center></td>
         </tr>
     </table>
+
+    <div id="first_name_error" name="first_name" class="error"></div>
+    <div id="last_name_error" name="last_name" class='error'></div>
+    <div id="email_error" name="email" class='error'></div>
 </form>

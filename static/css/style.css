@@ -67,6 +67,9 @@ button {
     -webkit-box-shadow: 0 1px 2px #581413 inset;
 }
 
+input.empty {
+    color: gray;
+}
 
 /*-=------------------------------------------------*/
 /*                  NO SCRIPT                       */
@@ -343,6 +346,10 @@ button {
     opacity: 0.7;
 }
 
+#contact td {
+    position: relative;
+}
+
 #contact td.indent {
     padding-left: 10px;
 }
@@ -362,6 +369,44 @@ button {
     position: absolute;
     right: -80px;
     bottom: 0;
+}
+
+#contact input.error {
+    outline-color: #AF0022;
+    outline-style: auto;
+    outline-width: 2px;
+}
+#contact img.error {
+    position: absolute;
+    display:none;
+    top: 10px;
+    right: 5px;
+}
+#contact div.error {
+    position: absolute;
+    display:none;
+    background-color: #AF0022;
+    filter: alpha(opacity=70);
+    -khtml-opacity: .7;
+    -moz-opacity: .7;
+    opacity: .7;
+    color: white;
+    border: 1px solid #AF0022;
+    border-radius:3px;
+    padding: 5px;
+}
+
+#contact #first_name_error {
+    top: 68px;
+    right: 335px;
+}
+#contact #last_name_error {
+    top: 68px;
+    right: 5px;
+}
+#contact #email_error {
+    top: 100px;
+    right: 5px;
 }
 
 /*-=------------------------------------------------*/

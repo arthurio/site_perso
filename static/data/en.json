@@ -9,10 +9,10 @@
         "<center><a target=\"_blank\" href=\"http://www.punchtab.com\"><div class=\"punchtab_website\"></div><br>Build a loyalty program<br>for your website or blog in minutes</a><center>"
         ],
     "contact": {
-        "first_name":"First name*",
-        "last_name":"Last name*",
-        "email":"Email address*",
-        "message":"Message*",
+        "first_name":"First name",
+        "last_name":"Last name",
+        "email":"Email address",
+        "message":"Message",
         "button":"Submit"
     }
 }
