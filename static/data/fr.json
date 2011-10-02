@@ -13,7 +13,8 @@
         "last_name":"Nom",
         "email":"Adresse email",
         "message":"Message",
-        "button":"Envoyer"
+        "button":"Envoyer",
+        "field_required":"This field is required."
     }
 
 }

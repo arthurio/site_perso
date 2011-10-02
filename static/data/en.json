@@ -13,6 +13,7 @@
         "last_name":"Last name",
         "email":"Email address",
         "message":"Message",
-        "button":"Submit"
+        "button":"Submit",
+        "field_required":"This field is required."
     }
 }

@@ -376,12 +376,27 @@ input.empty {
     outline-style: auto;
     outline-width: 2px;
 }
+
+#contact input.success {
+    outline-color: #8AAA35;
+    outline-style: auto;
+    outline-width: 2px;
+}
+
 #contact img.error {
     position: absolute;
     display:none;
     top: 10px;
     right: 5px;
 }
+
+#contact img.success {
+    position: absolute;
+    display:none;
+    top: 10px;
+    right: 5px;
+}
+
 #contact div.error {
     position: absolute;
     display:none;
@@ -405,7 +420,7 @@ input.empty {
     right: 5px;
 }
 #contact #email_error {
-    top: 100px;
+    top: 130px;
     right: 5px;
 }
 

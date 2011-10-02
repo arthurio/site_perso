@@ -6,12 +6,15 @@
     {% csrf_token %}
     <table>
         <tr>
-            <td><input class="empty" value="{{ data.contact.first_name }}" type="text" name="first_name"/><img src="{{ STATIC_URL }}img/icons/icon-error.png" name="first_name" class="error"/></td>
+            <td><input class="empty" value="{{ data.contact.first_name }}" type="text" name="first_name"/><img src="{{ STATIC_URL }}img/icons/icon-error.png" name="first_name" class="error"/><img src="{{ STATIC_URL }}img/icons/icon-success.png" name="first_name" class="success"/></td>
             <td class='separator'></td>
-            <td><input class="empty" value="{{ data.contact.last_name }}" type="text" name="last_name"/><img src="{{ STATIC_URL }}img/icons/icon-error.png" name="last_name" class="error"/></td>
+            <td><input class="empty" value="{{ data.contact.last_name }}" type="text" name="last_name"/><img src="{{ STATIC_URL }}img/icons/icon-error.png" name="last_name" class="error"/><img src="{{ STATIC_URL }}img/icons/icon-success.png" name="last_name" class="success"/></td>
         </tr>
         <tr>
-            <td colspan="3"><input class="empty" value="{{ data.contact.email }}" type="text" name="email"/><img src="{{ STATIC_URL }}img/icons/icon-error.png" name="email" class="error"/></td>
+            <td height="20px">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="3"><input class="empty" value="{{ data.contact.email }}" type="text" name="email"/><img src="{{ STATIC_URL }}img/icons/icon-error.png" name="email" class="error"/><img src="{{ STATIC_URL }}img/icons/icon-success.png" name="email" class="success"/></td>
         </tr>
         <tr>
             <td colspan="3" name="message" class="indent">{{ data.contact.message }}</td>

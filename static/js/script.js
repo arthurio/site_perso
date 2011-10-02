@@ -133,21 +133,31 @@ $(document).ready(function() {
     }
 
     $('form[name=mail] input[type=text]').focus(function(){
+        $(this).removeClass('empty error success');
+        $('form[name=mail] img[name='+this.name+'].success').hide();
+        $('form[name=mail] img[name='+this.name+'].error').hide();
         if (this.value == contact_fields[this.name]) {
             this.value='';
-            $(this).removeClass('empty');
-            $(this).removeClass('error');
         }
     });
 
     $('form[name=mail] input[type=text]').blur(function(){
         if (this.value == '') {
             this.value=contact_fields[this.name];
-            $(this).addClass('empty');
-            $(this).addClass('error');
+            $(this).addClass('empty error');
+            $(this).removeClass('success');
+            $('form[name=mail] img[name='+this.name+'].success').hide();
+            $('form[name=mail] img[name='+this.name+'].error').show();
+            $('form[name=mail] img[name='+this.name+'].error').mouseover(function(){
+                showNotification(this.name,field_required);
+            }).mouseout(function(){
+                hideNotification(this.name);
+            });
         } else {
-            $(this).removeClass('error');
+            $(this).addClass('success');
+            $('form[name=mail] img[name='+this.name+'].success').show();
         }
+
     });
 
     $('form[name=mail]').submit(function(){
@@ -165,16 +175,22 @@ $(document).ready(function() {
                 console.log('ok');
             } else {
                 $.each(json.errors, function(error,i){
-                    console.log(error);
                     $('form[name=mail] input[name='+error+']').addClass('error');
-                    $('form[name=mail] input[name='+error+']').val(contact_fields[error]);
-                    $('form[name=mail] img[name='+error+']').mouseover(function(){
+                    if ($('form[name=mail] input[name='+error+']') == ""){
+                        $('form[name=mail] input[name='+error+']').val(contact_fields[error]);
+                    } else {
+                        $('form[name=mail] input[name='+error+']').addClass('empty');
+                    }
+                    $('form[name=mail] input[name='+error+']').removeClass('success');
+                    $('form[name=mail] img[name='+error+'].success').hide();
+
+                    $('form[name=mail] img[name='+error+'].error').mouseover(function(){
                         showNotification(error,json.errors[error][0]);
                     }).mouseout(function(){
                         hideNotification(error);
                     });
 
-                    $('form[name=mail] img[name='+error+']').show();
+                    $('form[name=mail] img[name='+error+'].error').show();
 
                 });
             }
@@ -184,7 +200,6 @@ $(document).ready(function() {
     });
 
     function showNotification(name,message) {
-        
         $('form[name=mail] div.error[name='+name+']').html(message);
         $('form[name=mail] div.error[name='+name+']').show();
     }
