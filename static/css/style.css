@@ -67,7 +67,7 @@ button {
     -webkit-box-shadow: 0 1px 2px #581413 inset;
 }
 
-input.empty {
+.empty {
     color: gray;
 }
 
@@ -132,11 +132,16 @@ input.empty {
     box-shadow:0 5px 40px rgba(0,0,0,.5);
     border-radius: 10px;
     -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;    
-    background: url(../img/background/wood_bg.png) repeat;
+    -webkit-border-radius: 10px;
+    background: url(../img/background/glossymetal.jpg) repeat;
 }
 
 #popup .content {
+    border: 2px dashed black;
+    border-radius: 8px;
+    padding:10px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
 }
 
 #popup .close_button {
@@ -156,14 +161,14 @@ input.empty {
 
 #main_container {
     margin: auto;
-    width: 1000px;
+    width: 100%;
+    min-width: 1000px;
+    max-width: 1500px;
     overflow: hidden;
     position: relative;
     -moz-box-shadow:0 5px 40px rgba(0,0,0,.5);
     -webkit-box-shadow:0 5px 40px rgba(0,0,0,.5);
     box-shadow:0 5px 40px rgba(0,0,0,.5);
-    border: 1px solid black;
-    border-top: none;
     margin-bottom: 30px;
 }
 
@@ -174,10 +179,10 @@ input.empty {
 #panel_top {
     position: relative;
     overflow: hidden;
+    background: url(../img/background/banner_bg.png) repeat-x;
 }
 
 #banner {
-    
 }
 
 #banner .intro{
@@ -208,7 +213,7 @@ input.empty {
 }
 
 #banner img {
-    float:left;
+    float:right;
 }
 
 #banner #nav {
@@ -308,6 +313,7 @@ input.empty {
     width: 100%;
     color: white;
     font-size: 16px;
+
 }
 
 #contact input {
@@ -358,14 +364,12 @@ input.empty {
     width: 224px;
     height: 100%;
     left: -60px;
-    background: url(../img/background/bamboo.png) no-repeat;
     position: absolute;
 }
 
 #contact #bathrock_bg {
     width: 374px;
     height: 169px;
-    background: url(../img/background/bathrock_bg.png) no-repeat;
     position: absolute;
     right: -80px;
     bottom: 0;
@@ -374,7 +378,7 @@ input.empty {
 #contact input.error {
     outline-color: #AF0022;
     outline-style: auto;
-    outline-width: 2px;
+    outline-width: 1px;
 }
 
 #contact input.success {
@@ -382,6 +386,19 @@ input.empty {
     outline-style: auto;
     outline-width: 2px;
 }
+
+#contact textarea.error {
+    outline-color: #AF0022;
+    outline-style: auto;
+    outline-width: 1px;
+}
+
+#contact textarea.success {
+    outline-color: #8AAA35;
+    outline-style: auto;
+    outline-width: 2px;
+}
+
 
 #contact img.error {
     position: absolute;
@@ -412,15 +429,19 @@ input.empty {
 }
 
 #contact #first_name_error {
-    top: 68px;
+    top: 67px;
     right: 335px;
 }
 #contact #last_name_error {
-    top: 68px;
+    top: 67px;
     right: 5px;
 }
 #contact #email_error {
-    top: 130px;
+    top: 132px;
+    right: 5px;
+}
+#contact #message_error {
+    top: 192px;
     right: 5px;
 }
 

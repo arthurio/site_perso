@@ -1,11 +1,12 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from django.conf import settings 
+from django.conf import settings
+from django.http import HttpResponseServerError
 
 import simplejson
 
 from cv.forms import SendMailForm, JsonErrorList
-from cv import JsonResponse
+from cv import JsonResponse, send_me_mail
 
 import json
 
@@ -29,8 +30,9 @@ def mail(request):
             email = form.cleaned_data['email']
             first_name = form.cleaned_data['first_name']
             last_name = form.cleaned_data['last_name']
+            message = form.cleaned_data['message']
 
-            cv.send_mail(first_name,last_name,email)
+            send_me_mail(first_name,last_name,email,message)
 
             return JsonResponse({},status=True)
 
@@ -42,3 +44,4 @@ def mail(request):
             return JsonResponse(errors,status=False)        
     except Exception as e:
         print e
+        return HttpResponseServerError();

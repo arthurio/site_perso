@@ -28,15 +28,19 @@ $(document).ready(function() {
     }
 
     function changeLang(data) {
-        shake();
+        explode($('#main_container'));
         updateIntro(data);
         updateFlags(data);
         updateNav(data);
         updateContact(data);
     }
 
-    function shake() {
-        $('#body').effect("shake", { times:3 }, 50);
+    function shake(html) {
+        html.effect("shake", { times:3 }, 50);
+    }
+
+    function explode(html) {
+        html.show("explode", 1000);
     }
 
     function updateIntro(data) {
@@ -54,10 +58,6 @@ $(document).ready(function() {
 
     // POPUP
 
-    $('#popup .close_button').click(function(){
-        POPUP.hide();
-    });
-
     POPUP = {
         show: function() {
             $('#body').addClass('overlay');
@@ -67,9 +67,20 @@ $(document).ready(function() {
             $('#body').removeClass('overlay');
             $('#popup').slideUp();
         },
+        send: function() {
+            $('#popup #sound').append('<embed src="/static/sound/send.wav" autostart="true" hidden="true" loop="false"/>');
+            $('#body').removeClass('overlay');
+            $('#popup').hide("drop", { direction: "right" }, 1000);
+            setTimeout(removeEmbed,8000);
+        },
         setContent: function(content) {
             $('#popup .content').html(content);
-        }
+        },
+    }
+
+
+    function removeEmbed() {
+        $('embed').remove();
     }
 
     // END POPUP
@@ -112,6 +123,139 @@ $(document).ready(function() {
         POPUP.setContent($('#contact'));
         $('#contact').show();
         POPUP.show();
+        
+        $('#popup .close_button').click(function(){
+            cleanEmailForm();
+            POPUP.hide();
+        });
+
+        $('form[name=mail] input[type=text]').focus(function(){
+            $(this).removeClass('empty error success');
+            $('form[name=mail] img[name='+this.name+'].success').hide();
+            $('form[name=mail] img[name='+this.name+'].error').hide();
+            if (this.value == contact_fields[this.name]) {
+                this.value='';
+            }
+        });
+
+        $('form[name=mail] input[type=text]').blur(function(){
+            if (this.value == '') {
+                this.value=contact_fields[this.name];
+                $(this).addClass('empty error');
+                $(this).removeClass('success');
+                $('form[name=mail] img[name='+this.name+'].success').hide();
+                $('form[name=mail] img[name='+this.name+'].error').show();
+                $('form[name=mail] img[name='+this.name+'].error').mouseover(function(){
+                    showNotification(this.name,field_required);
+                }).mouseout(function(){
+                    hideNotification(this.name);
+                });
+            } else {
+                $(this).addClass('success');
+                $('form[name=mail] img[name='+this.name+'].success').show();
+            }
+        });
+
+        $('form[name=mail] textarea').focus(function(){
+            $(this).removeClass('empty error success');
+            $('form[name=mail] img[name='+this.name+'].success').hide();
+            $('form[name=mail] img[name='+this.name+'].error').hide();
+            if (this.value == contact_fields[this.name]) {
+                this.value='';
+            }
+        });
+
+        $('form[name=mail] textarea').blur(function(){
+            if (this.value == '') {
+                this.value = contact_fields[this.name];
+                $(this).addClass('empty error');
+                $(this).removeClass('success');
+                $('form[name=mail] img[name='+this.name+'].success').hide();
+                $('form[name=mail] img[name='+this.name+'].error').show();
+                $('form[name=mail] img[name='+this.name+'].error').mouseover(function(){
+                    showNotification(this.name,field_required);
+                }).mouseout(function(){
+                    hideNotification(this.name);
+                });
+            } else {
+                $(this).addClass('success');
+                $('form[name=mail] img[name='+this.name+'].success').show();
+            }
+
+        });
+
+        var send_email_clicked = false;
+        $('form[name=mail]').submit(function(){
+
+            if (!send_email_clicked) {
+                send_email_clicked = true;
+                var action = $(this).attr('action');
+                
+                $.each(contact_fields, function(field,i) {
+                    if (field == 'message') {
+                        if ($('form[name=mail] textarea[name='+field+']').val() == contact_fields[field]){ 
+                            $('form[name=mail] textarea[name='+field+']').val('');
+                        }
+                    } else {
+                        if ($('form[name=mail] input[name='+field+']').val() == contact_fields[field]) {
+                            $('form[name=mail] input[name='+field+']').val('');
+                        }
+                    }
+                });
+                
+
+                $.post(action, $(this).serialize(),function(json) {
+                    if (json.status == true) {
+                        POPUP.send();
+                        cleanEmailForm();
+                    } else {
+
+                        shake($('#popup'));
+                        $.each(json.errors, function(error,i){
+                            var field;
+                            if (error == 'message') {
+                                field = $('form[name=mail] textarea[name='+error+']');
+                            } else {
+                                field = $('form[name=mail] input[name='+error+']');
+                            }
+                            field.addClass('error');
+                            if (field.val() == ""){
+                                field.val(contact_fields[error]);
+                                field.addClass('empty');
+                            } else {
+                                field.removeClass('empty');
+                            }
+                            field.removeClass('success');
+
+                            $('form[name=mail] img[name='+error+'].success').hide();
+
+                            $('form[name=mail] img[name='+error+'].error').mouseover(function(){
+                                showNotification(error,json.errors[error][0]);
+                            }).mouseout(function(){
+                                hideNotification(error);
+                            });
+
+                            $('form[name=mail] img[name='+error+'].error').show()
+
+                        });
+                        send_email_clicked = false;
+                    }
+                }, "json");
+            }
+
+            return false;
+        });
+
+        function showNotification(name,message) {
+            $('form[name=mail] div.error[name='+name+']').html(message);
+            $('form[name=mail] div.error[name='+name+']').show();
+        }
+
+        function hideNotification(name){
+            $('form[name=mail] div.error[name='+name+']').hide();
+        }
+
+
     });
 
     // END NAV
@@ -121,92 +265,31 @@ $(document).ready(function() {
     var contact_fields = {
         'first_name':$('form[name=mail] input[name=first_name]').val(),
         'last_name':$('form[name=mail] input[name=last_name]').val(),
-        'email':$('form[name=mail] input[name=email]').val()
+        'email':$('form[name=mail] input[name=email]').val(),
+        'message':$('form[name=mail] textarea[name=message]').text()
     }
 
     function updateContact(data) {
-
         $.each(contact_fields, function(field,i) {
             contact_fields[field] = data.contact[field];
-            $('form[name=mail] input[name='+field+']').val(data.contact[field]);
-        });
-    }
-
-    $('form[name=mail] input[type=text]').focus(function(){
-        $(this).removeClass('empty error success');
-        $('form[name=mail] img[name='+this.name+'].success').hide();
-        $('form[name=mail] img[name='+this.name+'].error').hide();
-        if (this.value == contact_fields[this.name]) {
-            this.value='';
-        }
-    });
-
-    $('form[name=mail] input[type=text]').blur(function(){
-        if (this.value == '') {
-            this.value=contact_fields[this.name];
-            $(this).addClass('empty error');
-            $(this).removeClass('success');
-            $('form[name=mail] img[name='+this.name+'].success').hide();
-            $('form[name=mail] img[name='+this.name+'].error').show();
-            $('form[name=mail] img[name='+this.name+'].error').mouseover(function(){
-                showNotification(this.name,field_required);
-            }).mouseout(function(){
-                hideNotification(this.name);
-            });
-        } else {
-            $(this).addClass('success');
-            $('form[name=mail] img[name='+this.name+'].success').show();
-        }
-
-    });
-
-    $('form[name=mail]').submit(function(){
-        var action = $(this).attr('action');
-        
-        $.each(contact_fields, function(field,i) {
-            if ($('form[name=mail] input[name='+field+']').val() == contact_fields[field]) {
-                $('form[name=mail] input[name='+field+']').val('');
-            }
-        });
-       
-
-        $.post(action, $(this).serialize(),function(json) {
-            if (json.status == true) {
-                console.log('ok');
+            var input;
+            if (field == 'message') {
+                input = $('form[name=mail] textarea[name='+field+']');
             } else {
-                $.each(json.errors, function(error,i){
-                    $('form[name=mail] input[name='+error+']').addClass('error');
-                    if ($('form[name=mail] input[name='+error+']') == ""){
-                        $('form[name=mail] input[name='+error+']').val(contact_fields[error]);
-                    } else {
-                        $('form[name=mail] input[name='+error+']').addClass('empty');
-                    }
-                    $('form[name=mail] input[name='+error+']').removeClass('success');
-                    $('form[name=mail] img[name='+error+'].success').hide();
-
-                    $('form[name=mail] img[name='+error+'].error').mouseover(function(){
-                        showNotification(error,json.errors[error][0]);
-                    }).mouseout(function(){
-                        hideNotification(error);
-                    });
-
-                    $('form[name=mail] img[name='+error+'].error').show();
-
-                });
+                input = $('form[name=mail] input[name='+field+']');
             }
-        }, "json");
-
-        return false;
-    });
-
-    function showNotification(name,message) {
-        $('form[name=mail] div.error[name='+name+']').html(message);
-        $('form[name=mail] div.error[name='+name+']').show();
+            $('form[name=mail] img[name='+field+'].success').hide();
+            $('form[name=mail] img[name='+field+'].error').hide();
+            input.val(data.contact[field]);
+            input.removeClass('error success');
+            input.addClass('empty');
+        });
     }
 
-    function hideNotification(name){
-        $('form[name=mail] div.error[name='+name+']').hide();
+    function cleanEmailForm() {
+        updateContact({'contact':contact_fields});
     }
 
+    
 });
 

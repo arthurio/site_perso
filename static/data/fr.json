@@ -12,7 +12,7 @@
         "first_name":"Prénom",
         "last_name":"Nom",
         "email":"Adresse email",
-        "message":"Message",
+        "message":"Ecrivez votre message ici...",
         "button":"Envoyer",
         "field_required":"This field is required."
     }

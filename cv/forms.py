@@ -13,6 +13,7 @@ class SendMailForm(forms.Form):
     email = forms.EmailField(max_length=75,required=True,error_messages={'invalid': (u'Invalid email address')})
     first_name = forms.CharField(max_length=30,required=True)
     last_name = forms.CharField(max_length=30,required=True)
+    message = forms.CharField(min_length=10,max_length=1000,required=True)
  
     def clean_first_name(self):
         first_name = self.cleaned_data['first_name']
@@ -27,6 +28,14 @@ class SendMailForm(forms.Form):
             raise forms.ValidationError('This field is required.')
         else:
             return last_name
+
+    def clean_message(self):
+        message = self.cleaned_data['message']
+        if not message.strip():
+            raise forms.ValidationError('This field is required.')
+        else:
+            return message
+
 
 class JsonErrorList(ErrorList):
     def __unicode__(self):

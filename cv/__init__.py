@@ -3,6 +3,7 @@ from django.db.models.query import QuerySet
 from django.http import HttpResponse
 from django.utils import simplejson
 from types import NoneType, DictType
+from django.core.mail import EmailMessage
 
 class JsonResponse(HttpResponse):
     def __init__(self, object, status=None):
@@ -24,5 +25,7 @@ class JsonResponse(HttpResponse):
         super(JsonResponse, self).__init__(
             content, content_type='application/json')
 
-def send_mail(first_name,last_name,email):
-    print first_name
+def send_me_mail(first_name,last_name,email,message):
+    msg = EmailMessage('Site perso', '<div>'+first_name+'&nbsp;'+last_name+'</div><div>'+email+'</div><div>'+message+'</div>', 'from@example.com', ['arthur.rio44@gmail.com'])
+    msg.content_subtype = "html"
+    msg.send(fail_silently=False)

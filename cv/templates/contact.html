@@ -1,7 +1,3 @@
-<div id="bamboo_bg">
-</div>
-<div id="bathrock_bg">
-</div>
 <form action='{% url mail %}' name='mail'>
     {% csrf_token %}
     <table>
@@ -11,16 +7,19 @@
             <td><input class="empty" value="{{ data.contact.last_name }}" type="text" name="last_name"/><img src="{{ STATIC_URL }}img/icons/icon-error.png" name="last_name" class="error"/><img src="{{ STATIC_URL }}img/icons/icon-success.png" name="last_name" class="success"/></td>
         </tr>
         <tr>
-            <td height="20px">&nbsp;</td>
+            <td>&nbsp;</td>
         </tr>
         <tr>
             <td colspan="3"><input class="empty" value="{{ data.contact.email }}" type="text" name="email"/><img src="{{ STATIC_URL }}img/icons/icon-error.png" name="email" class="error"/><img src="{{ STATIC_URL }}img/icons/icon-success.png" name="email" class="success"/></td>
         </tr>
         <tr>
-            <td colspan="3" name="message" class="indent">{{ data.contact.message }}</td>
+            <td>&nbsp;</td>
         </tr>
         <tr>
-            <td colspan="3"><textarea name="message" rows="10" width="100%"></textarea></td>
+            <td colspan="3"><textarea class="empty" name="message" rows="10" width="100%">{{ data.contact.message }}</textarea><img src="{{ STATIC_URL }}img/icons/icon-error.png" name="message" class="error"/><img src="{{ STATIC_URL }}img/icons/icon-success.png" name="message" class="success"/></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
         </tr>
         <tr>
             <td colspan="3"><center><button class="red_button" type="submit">{{ data.contact.button }}</button></center></td>
@@ -30,4 +29,5 @@
     <div id="first_name_error" name="first_name" class="error"></div>
     <div id="last_name_error" name="last_name" class='error'></div>
     <div id="email_error" name="email" class='error'></div>
+    <div id="message_error" name="message" class='error'></div>
 </form>
