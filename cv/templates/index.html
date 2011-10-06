@@ -12,8 +12,12 @@
 	<link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon/computer.png">
 
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css">
+
+
 </head>
 <body>
+<div id="fb-root"></div>
+
 <script>
 
 var field_required = '{{ data.contact.field_required }}';
@@ -96,6 +100,26 @@ function convertToHtml(str)
 <script>!window.jQuery && document.write('<script src="{{ STATIC_URL }}lib/jquery-ui/jquery-1.4.4.min.js"><\/script>')</script>
 
 <script src="{{ STATIC_URL}}js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
-<script src="{{ STATIC_URL}}js/script.js" type="text/javascript"></script>        
+<script src="{{ STATIC_URL}}js/script.js" type="text/javascript"></script> 
+
+<!-- FACEBOOK -->
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- GOOGLE PLUS ONE -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
 </body>
 </html>

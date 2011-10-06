@@ -8,20 +8,20 @@ body {
 }
 
 div.twitter_follow {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     background: url('../img/link/twitter_follow.png') no-repeat;
 }
 
 div.facebook_pt {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     background: url('../img/link/facebook_pt.png') no-repeat;
 }
 
 div.punchtab_website {
-    width: 272px;
-    height: 100px;
+    width: 136px;
+    height: 50px;
     background: url('../img/link/punchtab.png') no-repeat;
 }
 
@@ -162,58 +162,68 @@ button {
 #main_container {
     margin: auto;
     width: 100%;
+    height: 100%;
     min-width: 1000px;
     max-width: 1500px;
-    overflow: hidden;
     position: relative;
-    -moz-box-shadow:0 5px 40px rgba(0,0,0,.5);
-    -webkit-box-shadow:0 5px 40px rgba(0,0,0,.5);
-    box-shadow:0 5px 40px rgba(0,0,0,.5);
-    margin-bottom: 30px;
 }
 
 /*-=------------------------------------------------*/
-/*                      PANEL TOP                   */
+/*                      HEADER                      */
 /*--------------------------------------------------*/
 
-#panel_top {
+#header {
     position: relative;
     overflow: hidden;
-    background: url(../img/background/banner_bg.png) repeat-x;
+    background-color: rgba(45,45,45,.9);
 }
 
 #banner {
+    position:relative;
+    height:200px;
+    background: url(../img/background/glossymetal.jpg) repeat;
+
+}
+
+#banner .contact {
+    position:absolute;
+    left:120px;
+    top:10px;
+}
+
+#banner .contact h1 {
+    color: #1089C9;
+}
+
+#banner .contact h3 {
+    color: white;
 }
 
 #banner .intro{
     position: absolute;
-    color: white;
-    margin: 35px 100px auto;
-    width: 350px;
-    height: 200px;
-    font-size: 17px;
+    width: 300px;
+    height: 130px;
+    font-size: 15px;
+    right: 200px;
+    top: 15px;
 }
 
 #banner .begining {
     display: none;
-    color:white;
+    color:#1089C9;
     font-size: 40px;
     position:absolute;
-    top: 40px;
-    left:70px;
+    top: 15px;
+    right: 520px;
 }
 
 #banner .end {
     display: none;
-    color:white;
+    color:#1089C9;
     font-size: 40px;
     position: absolute;
-    top: 165px;
-    left: 470px;
-}
-
-#banner img {
-    float:right;
+    top: 105px;
+    right: 170px;
 }
 
 #banner #nav {
@@ -284,8 +294,18 @@ button {
 /*--------------------------------------------------*/
 
 #home {
-    height: 500px;
+    display: none;
+    background-color: white;
+    background: url(../img/background/texture.png) repeat;
+    min-height: 449px;
+    position: relative;
 }
+
+#home .picture {
+    position:absolute;
+    bottom:0;
+}
+
 
 /*-=------------------------------------------------*/
 /*                    RESUME                        */
@@ -446,10 +466,32 @@ button {
 }
 
 /*-=------------------------------------------------*/
-/*                    PANEL BOTTOM                  */
+/*                    FOOTER                        */
 /*--------------------------------------------------*/
 
-#panel_bottom {
-    bottom: 0;
+#footer {
+    overflow: hidden;
+    display:none;
+    bottom:0;
+    padding: 5px;
+    height: 20px;
+    background: rgba(16,137,201,.9);
+    position:relative;
 }
 
+div.fb-like {
+    bottom: 2px;
+}
+
+#footer .socials_container {
+    margin-left:100px;
+    float: left;
+    min-width: 308px;
+}
+
+#copyright {
+    margin-left: 50px;
+    float: left;
+    color: white;
+    margin-top: 3px;
+}

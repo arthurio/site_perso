@@ -28,7 +28,6 @@ $(document).ready(function() {
     }
 
     function changeLang(data) {
-        explode($('#main_container'));
         updateIntro(data);
         updateFlags(data);
         updateNav(data);
@@ -292,4 +291,11 @@ $(document).ready(function() {
 
     
 });
+
+// HOME
+    $('#home').show('slide',{'direction':'left'},1000);
+
+
+// FOOTER
+    $('#footer').show('slide',{'direction':'down'},1000);
 
