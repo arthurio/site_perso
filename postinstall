@@ -1,0 +1,5 @@
+#!/bin/sh
+rm -R /home/dotcloud/data/static
+mkdir /home/dotcloud/data/static
+cp -R site_perso/static/* /home/dotcloud/data/static/
+python site_perso/manage.py collectstatic --noinput --settings=site_perso.settings.prod

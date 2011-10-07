@@ -1,0 +1,25 @@
+{
+    "contact_panel":"Contact",
+    "resume_panel":"Curriculum Vittae",
+    "nav": ["Accueil","CV","Contact"],
+    "lang":"Français",
+    "intro":[
+        "<center><a target=\"_blank\" href=\"http://www.facebook.com/PunchTabbers\"><div class=\"facebook_pt\"</div></div><br>Suivez PunchTab sur Facebook</a></center>",
+        "<center><a target=\"_blank\" href=\"http://twitter.com/arthur_rio\"><div class=\"twitter_follow\"></div><br>Suivez moi sur Twitter</a></center>",
+        "<center><a target=\"_blank\" href=\"http://www.punchtab.com\"><div class=\"punchtab_website\"></div><br>Créer un programme de fidélité<br>pour votre site ou blog en quelques minutes</a><center>"
+        ],
+    "contact": {
+        "first_name":"Prénom",
+        "last_name":"Nom",
+        "email":"Adresse email",
+        "message":"Ecrivez votre message ici...",
+        "button":"Envoyer",
+        "field_required":"This field is required."
+    },
+    "pdf": {
+        "title":"Téléchargez mon CV (.pdf)",
+        "en":"Version anglaise",
+        "fr":"Version française"
+    }
+
+}
