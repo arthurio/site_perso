@@ -15,6 +15,11 @@
         "message":"Ecrivez votre message ici...",
         "button":"Envoyer",
         "field_required":"This field is required."
+    },
+    "pdf": {
+        "title":"Téléchargez mon CV (.pdf)",
+        "en":"Version anglaise",
+        "fr":"Version française"
     }
 
 }

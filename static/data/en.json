@@ -15,5 +15,11 @@
         "message":"Write your message here...",
         "button":"Submit",
         "field_required":"This field is required."
+    },
+    "pdf": {
+        "title":"Download my resume (.pdf)",
+        "en":"English version",
+        "fr":"French version"
     }
+
 }

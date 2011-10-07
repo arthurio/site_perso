@@ -1,4 +1,12 @@
-<div id="resume">
+<div class="pdf_container">
+    <h1>{{ data.pdf.title }}</h1>
 
-
+    <div class="group">
+        <a href="{{ STATIC_URL }}pdf/CV_ArthurRio_en.pdf" target="_blank"><div id="pdf_en" class="img"></div></a>
+        <label name="en">{{ data.pdf.en }}</label>
+    </div>
+    <div class="group">
+        <a href="{{ STATIC_URL }}pdf/CV_ArthurRio_fr.pdf" target="_blank"><div id="pdf_fr" class="img"></div></a>
+        <label name="fr">{{ data.pdf.fr }}</label>
+    </div>
 </div>

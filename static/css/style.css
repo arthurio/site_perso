@@ -203,7 +203,7 @@ button {
     position: absolute;
     width: 300px;
     height: 130px;
-    font-size: 15px;
+    font-size: 18px;
     right: 200px;
     top: 15px;
 }
@@ -290,14 +290,22 @@ button {
 }
 
 /*-=------------------------------------------------*/
+/*                    CONTENT                       */
+/*--------------------------------------------------*/
+
+#content {
+    background-color: white;
+    background: url(../img/background/texture.png) repeat;
+    min-height: 449px;
+    position: relative;
+}
+
+
+/*-=------------------------------------------------*/
 /*                    HOME                          */
 /*--------------------------------------------------*/
 
 #home {
-    display: none;
-    background-color: white;
-    background: url(../img/background/texture.png) repeat;
-    min-height: 449px;
     position: relative;
 }
 
@@ -313,7 +321,64 @@ button {
 
 #resume {
     display: none;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
 }
+
+#resume .pdf_container {
+    margin-top: 50px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    color: #434343;
+}
+
+#resume .pdf_container .img {
+    margin-top: 20px;
+    width: 200px;
+    height: 133px;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-box-shadow: 0 0 10px #434343;
+    -webkit-box-shadow: 0 0 10px #434343;
+    box-shadow: 0 0 10px #434343;
+    border: 4px solid rgba(255,255,255,.7);
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#resume .pdf_container h1 {
+    font-size: 28px;
+}
+
+#resume div.img:hover {
+    filter: alpha(opacity=70);
+    -khtml-opacity: .7;
+    -moz-opacity: .7;
+    opacity: .7;
+}
+
+#resume .group {
+    margin-left: 50px;
+    margin-right: 50px;
+    display: inline-block;
+}
+
+#resume .group label {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#resume #pdf_en {
+    background: url(../img/flags/en_big.png) no-repeat;
+}
+
+#resume #pdf_fr {
+    background: url(../img/flags/fr_big.png) no-repeat;
+}
+
 
 /*-=------------------------------------------------*/
 /*                    CONTACT                       */
@@ -495,3 +560,4 @@ div.fb-like {
     color: white;
     margin-top: 3px;
 }
+

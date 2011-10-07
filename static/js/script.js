@@ -32,6 +32,7 @@ $(document).ready(function() {
         updateFlags(data);
         updateNav(data);
         updateContact(data);
+        updateResume(data);
     }
 
     function shake(html) {
@@ -294,8 +295,29 @@ $(document).ready(function() {
 
 // HOME
     $('#home').show('slide',{'direction':'left'},1000);
+    $('#nav li[name=home]').click(function() {
+        hideAllOthers(['resume']);
+        $('#home').show('slide',{'direction':'left'},1000);
+    });
 
 
 // FOOTER
     $('#footer').show('slide',{'direction':'down'},1000);
 
+// RESUME
+    $('#nav li[name=resume]').click(function() {
+        hideAllOthers(['home']);
+        $('#resume').show('slide',{'direction':'left'},1000);
+    });
+
+    function hideAllOthers(ids) {
+        $.each(ids, function(i) {
+            $('#'+ids[i]).hide('slide',{'direction':'left'},1000);
+        });
+    }
+
+    function updateResume(data) {
+        $('#resume .pdf_container h1').html(data.pdf.title);
+        $('#resume .pdf_container label[name=en]').html(data.pdf.en);
+        $('#resume .pdf_container label[name=fr]').html(data.pdf.fr);
+    }
