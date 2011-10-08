@@ -4,13 +4,16 @@ from django.conf import settings
 from django.http import HttpResponseServerError
 
 import simplejson
+import logging
 
 from site_perso.cv.forms import SendMailForm, JsonErrorList
 from site_perso.cv import JsonResponse, send_me_mail
 
 def cv(request):
     common = simplejson.load(open('%sdata/common.json' % (settings.STATIC_REL_URL),'r'))
-    if request.META.get('LANG') and request.META.get('LANG').count('fr') != 0:
+
+    # TRY TO DETERMINE THE LANG
+    if (request.META.get('LANG') and request.META.get('LANG').count('fr') != 0) or (request.META.get('HTTP_ACCEPT_LANGUAGE') and request.META.get('HTTP_ACCEPT_LANGUAGE').count('fr') != 0):
         data = simplejson.load(open('%sdata/fr.json' % (settings.STATIC_REL_URL),'r'))
     else:
         data = simplejson.load(open('%sdata/en.json' % (settings.STATIC_REL_URL),'r'))
