@@ -1,3 +1,13 @@
-<div style="margin:auto; width:200px;">
-    <img style="margin-top: 100px" src="{{ STATIC_URL }}img/background/under_construction.png"/>
+<div style="bottom:0;left:50px;position:absolute;">
+    <img id="me_chair" height="400px" src="{{ STATIC_URL }}img/pictures/montage_resize.png"/>
+</div>
+<div style="bottom: 358px;left: 132px; position:absolute;">
+    <img id="helmet" width="70px" style="display:none;" src="{{ STATIC_URL }}img/pictures/helmet.png"/>
+</div>
+
+<div style="position:relative; margin:auto; text-align:center;width:400px;">
+    <div id="barrier" style="display: none; padding-top:90px;">
+        <h1>{{ data.construction }}</h1>
+        <img src="{{ STATIC_URL }}img/background/under_construction.png"/>
+    </div>
 </div>

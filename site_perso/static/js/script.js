@@ -33,6 +33,7 @@ $(document).ready(function() {
         updateNav(data);
         updateContact(data);
         updateResume(data);
+        updateHome(data);
     }
 
     function shake(html) {
@@ -292,14 +293,26 @@ $(document).ready(function() {
     }
 
     
-});
-
 // HOME
-    $('#home').show('slide',{'direction':'left'},1000);
     $('#nav li[name=home]').click(function() {
         hideAllOthers(['resume']);
         $('#home').show('slide',{'direction':'left'},1000);
+        setTimeout(showConstruction,2000);
     });
+    $('#nav li[name=home]').click();
+
+    function showConstruction(){
+        $('#helmet').show('slide',{'direction':'up'},2000);
+        setTimeout(showBarrier,1000);
+    }
+
+    function showBarrier() {
+        $('#barrier').show('pulsate',1000);
+    }
+   
+    function updateHome(data) {
+        $('#barrier h1').html(data.construction);
+    }
 
 
 // FOOTER
@@ -307,18 +320,22 @@ $(document).ready(function() {
 
 // RESUME
     $('#nav li[name=resume]').click(function() {
-        hideAllOthers(['home']);
+        hideAllOthers(['home','helmet','barrier']);
         $('#resume').show('slide',{'direction':'left'},1000);
     });
 
+    
+    function updateResume(data) {
+        $('#resume .pdf_container h1').html(data.pdf.title);
+        $('#resume .pdf_container label[name=en]').html(data.pdf.en);
+        $('#resume .pdf_container label[name=fr]').html(data.pdf.fr);
+    }
+
+// COMMON
     function hideAllOthers(ids) {
         $.each(ids, function(i) {
             $('#'+ids[i]).hide();
         });
     }
 
-    function updateResume(data) {
-        $('#resume .pdf_container h1').html(data.pdf.title);
-        $('#resume .pdf_container label[name=en]').html(data.pdf.en);
-        $('#resume .pdf_container label[name=fr]').html(data.pdf.fr);
-    }
+});
