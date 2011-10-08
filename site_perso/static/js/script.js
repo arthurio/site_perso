@@ -312,7 +312,7 @@ $(document).ready(function() {
 
     function hideAllOthers(ids) {
         $.each(ids, function(i) {
-            $('#'+ids[i]).hide('slide',{'direction':'left'},1000);
+            $('#'+ids[i]).hide();
         });
     }
 

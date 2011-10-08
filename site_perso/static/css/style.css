@@ -307,6 +307,7 @@ button {
 
 #home {
     position: relative;
+    display: none;
 }
 
 /*-=------------------------------------------------*/
