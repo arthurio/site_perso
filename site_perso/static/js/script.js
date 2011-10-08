@@ -65,7 +65,7 @@ $(document).ready(function() {
         },
         hide: function() {
             $('#body').removeClass('overlay');
-            $('#popup').slideUp();
+            $('#popup').hide('clip',700);
         },
         send: function() {
             $('#popup #sound').append('<embed src="/static/sound/send.wav" autostart="true" hidden="true" loop="false"/>');
@@ -127,6 +127,7 @@ $(document).ready(function() {
         $('#popup .close_button').click(function(){
             cleanEmailForm();
             POPUP.hide();
+            $('#popup .close_button').unbind('click');
         });
 
         $('form[name=mail] input[type=text]').focus(function(){
