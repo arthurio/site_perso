@@ -44,3 +44,7 @@ def mail(request):
             return JsonResponse(errors,status=False)        
     except Exception as e:
         return HttpResponseServerError();
+
+def robots(request):
+    template_context={}
+    return render_to_response('robots.txt',template_context,RequestContext(request))
