@@ -295,8 +295,8 @@ $(document).ready(function() {
     
 // HOME
     $('#nav li[name=home]').click(function() {
-        hideAllOthers(['resume']);
-        $('#home').show('slide',{'direction':'left'},1000);
+        hideRight('resume');
+        showRight('home');
         setTimeout(showConstruction,2000);
     });
     $('#nav li[name=home]').click();
@@ -320,8 +320,9 @@ $(document).ready(function() {
 
 // RESUME
     $('#nav li[name=resume]').click(function() {
-        hideAllOthers(['home','helmet','barrier']);
-        $('#resume').show('slide',{'direction':'left'},1000);
+        simpleHide(['helmet','barrier']);
+        hideRight('home');
+        showRight('resume');
     });
 
     
@@ -331,8 +332,18 @@ $(document).ready(function() {
         $('#resume .pdf_container label[name=fr]').html(data.pdf.fr);
     }
 
-// COMMON
-    function hideAllOthers(ids) {
+// COMMON   
+    function hideRight(id) {
+        if ($('#'+id).is(":visible")) {
+            $('#'+id).hide('slide',{'direction':'right'},1000);
+        }
+    }
+
+    function showRight(id) {
+        $('#'+id).show('slide',{'direction':'left'},1000);
+    }
+
+    function simpleHide(ids) {
         $.each(ids, function(i) {
             $('#'+ids[i]).hide();
         });

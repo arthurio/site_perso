@@ -192,6 +192,9 @@ button {
 
 #banner .contact h1 {
     color: #1089C9;
+    margin: 0;
+    font-size: 60px;
+    font-weight: 600;
 }
 
 #banner .contact h3 {
@@ -305,7 +308,8 @@ button {
 /*--------------------------------------------------*/
 
 #home {
-    position: relative;
+    position: absolute;
+    width: 100%;
     display: none;
     min-height: 449px;
 }
@@ -322,7 +326,8 @@ button {
 
 #resume {
     display: none;
-    position: relative;
+    position: absolute;
+    width: 100%;
     overflow: hidden;
     text-align: center;
 }
