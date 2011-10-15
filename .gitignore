@@ -37,6 +37,7 @@ mobile/SolidPunch.xcodeproj/*.pbxuser
 # OS generated files #
 ######################
 .DS_Store?
+!.DS_Store
 .DS_Store
 
 *.swp
