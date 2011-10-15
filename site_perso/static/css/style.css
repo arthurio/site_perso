@@ -167,12 +167,17 @@ button {
 /*               MAIN CONTAINER                     */
 /*--------------------------------------------------*/
 
+#body {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    min-width: 1100px;
+    max-width: 1500px;
+    width: 100%;
+}
+
 #main_container {
     margin: auto;
-    width: 100%;
-    min-width: 1000px;
-    max-width: 1500px;
-    position: relative;
 }
 
 /*-=------------------------------------------------*/
@@ -180,32 +185,35 @@ button {
 /*--------------------------------------------------*/
 
 #header {
-    position: relative;
     overflow: hidden;
 }
 
 #banner {
     position:relative;
     height:200px;
-    background: url(../img/background/glossymetal.jpg) repeat;
+    background: url(../img/background/darkGray_noise_bg.png) repeat;
 
 }
 
 #banner .contact {
     position:absolute;
     left:120px;
-    top:10px;
+    top:5px;
 }
 
 #banner .contact h1 {
+    letter-spacing:12px;
     color: #1089C9;
     margin: 0;
     font-size: 60px;
-    font-weight: 600;
+    font-weight:300;
 }
 
 #banner .contact h3 {
+    margin:0;
     color: white;
+    font-size: 22px;
+    font-weight:300;
 }
 
 #banner .intro{
@@ -303,10 +311,9 @@ button {
 /*--------------------------------------------------*/
 
 #content {
-    background: url(../img/background/texture.png) repeat;
+    background: url(../img/background/whiteNoise_bg.png) repeat;
     background-color: white;
     min-height: 449px;
-    position: relative;
 }
 
 
@@ -556,8 +563,10 @@ button {
     display:none;
     bottom:0;
     padding: 5px;
-    background: rgba(16,137,201,.9);
-    position:relative;
+    /*background: rgba(16,137,201,.9);*/
+    background: url(../img/background/blue_noise.png) transparent repeat;
+    /*background-color: #1089C9;*/
+    height: 100%;
 }
 
 div.fb-like {
