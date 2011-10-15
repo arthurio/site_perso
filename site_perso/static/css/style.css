@@ -433,7 +433,7 @@ button {
     -khtml-opacity: 0.7;
     -moz-opacity: 0.7;
     opacity: 0.7;
-
+    padding-left:10px;
 }
 
 #contact td.separator {
@@ -459,27 +459,12 @@ button {
     padding: 10px;
 }
 
-#contact td {
+#contact div.wrapper {
     position: relative;
 }
 
 #contact td.indent {
     padding-left: 10px;
-}
-
-#contact #bamboo_bg {
-    width: 224px;
-    height: 100%;
-    left: -60px;
-    position: absolute;
-}
-
-#contact #bathrock_bg {
-    width: 374px;
-    height: 169px;
-    position: absolute;
-    right: -80px;
-    bottom: 0;
 }
 
 #contact input.error {
@@ -510,14 +495,14 @@ button {
 #contact img.error {
     position: absolute;
     display:none;
-    top: 10px;
+    top: 7px;
     right: 5px;
 }
 
 #contact img.success {
     position: absolute;
     display:none;
-    top: 10px;
+    top: 7px;
     right: 5px;
 }
 
@@ -537,7 +522,7 @@ button {
 
 #contact #first_name_error {
     top: 67px;
-    right: 335px;
+    right: 330px;
 }
 #contact #last_name_error {
     top: 67px;
@@ -548,7 +533,7 @@ button {
     right: 5px;
 }
 #contact #message_error {
-    top: 192px;
+    top: 195px;
     right: 5px;
 }
 
