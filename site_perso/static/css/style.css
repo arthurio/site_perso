@@ -1,10 +1,15 @@
 body {
-    margin: 0px;
-    vertical-align:baseline;
     font:13px "Helvetica Neue", helvetica, sans-serif;
     *font-size:small;
     *font:x-small;
     line-height:1.22;
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
 }
 
 div.twitter_follow {
@@ -318,6 +323,10 @@ button {
     font-size: 40px;
     font-weight: bold;
     margin:0;
+}
+
+#home #barrier {
+    padding-top: 90px;
 }
 
 /*-=------------------------------------------------*/

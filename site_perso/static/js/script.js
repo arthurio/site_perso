@@ -297,19 +297,9 @@ $(document).ready(function() {
     $('#nav li[name=home]').click(function() {
         hideRight('resume');
         showRight('home');
-        setTimeout(showConstruction,2000);
     });
     $('#nav li[name=home]').click();
 
-    function showConstruction(){
-        $('#helmet').show('slide',{'direction':'up'},2000);
-        setTimeout(showBarrier,1000);
-    }
-
-    function showBarrier() {
-        $('#barrier').show('pulsate',1000);
-    }
-   
     function updateHome(data) {
         $('#barrier h1').html(data.construction);
     }
@@ -320,7 +310,6 @@ $(document).ready(function() {
 
 // RESUME
     $('#nav li[name=resume]').click(function() {
-        simpleHide(['helmet','barrier']);
         hideRight('home');
         showRight('resume');
     });
