@@ -167,16 +167,13 @@ button {
 /*               MAIN CONTAINER                     */
 /*--------------------------------------------------*/
 
-#body {
+#main_container {
     height: 100%;
     position: relative;
     overflow: hidden;
     min-width: 1100px;
     max-width: 1500px;
     width: 100%;
-}
-
-#main_container {
     margin: auto;
 }
 
@@ -203,7 +200,7 @@ button {
 
 #banner .contact h1 {
     letter-spacing:12px;
-    color: #1089C9;
+    color: #0097C5;
     margin: 0;
     font-size: 60px;
     font-weight:300;
@@ -227,7 +224,7 @@ button {
 
 #banner .begining {
     display: none;
-    color:#1089C9;
+    color:#0097C5;
     font-size: 40px;
     position:absolute;
     top: 15px;
@@ -236,7 +233,7 @@ button {
 
 #banner .end {
     display: none;
-    color:#1089C9;
+    color:#0097C5;
     font-size: 40px;
     position: absolute;
     top: 105px;
@@ -459,6 +456,7 @@ button {
     -khtml-opacity: 0.7;
     -moz-opacity: 0.7;
     opacity: 0.7;
+    padding: 10px;
 }
 
 #contact td {
@@ -563,9 +561,7 @@ button {
     display:none;
     bottom:0;
     padding: 5px;
-    /*background: rgba(16,137,201,.9);*/
     background: url(../img/background/blue_noise.png) transparent repeat;
-    /*background-color: #1089C9;*/
     height: 100%;
 }
 

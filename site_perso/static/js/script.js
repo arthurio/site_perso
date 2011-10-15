@@ -61,16 +61,16 @@ $(document).ready(function() {
 
     POPUP = {
         show: function() {
-            $('#body').addClass('overlay');
+            $('#main_container').addClass('overlay');
             $('#popup').fadeIn();
         },
         hide: function() {
-            $('#body').removeClass('overlay');
+            $('#main_container').removeClass('overlay');
             $('#popup').hide('clip',700);
         },
         send: function() {
             $('#popup #sound').append('<embed src="/static/sound/send.wav" autostart="true" hidden="true" loop="false"/>');
-            $('#body').removeClass('overlay');
+            $('#main_container').removeClass('overlay');
             $('#popup').hide("drop", { direction: "right" }, 1000);
             setTimeout(removeEmbed,8000);
         },
