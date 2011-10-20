@@ -21,6 +21,18 @@
         "en":"Version anglaise",
         "fr":"Version française"
     },
-    "construction":"Site en cours de construction"
+    "home": {
+        "bored":"Fatigué des CVs standards?",
+        "minutes":"Prenez 5 minutes pour me connaitre!",
+        "take_tour":"Faites le tour"
+    },
+    "tour": {
+        "menu": [
+            "Formation",
+            "Technologies",
+            "Voyages",
+            "Sport"
+        ]
+    }
 
 }

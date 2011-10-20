@@ -21,6 +21,18 @@
         "en":"English version",
         "fr":"French version"
     },
-    "construction":"Website under construction"
+    "home": {
+        "bored":"Bored of standard Resumes?",
+        "minutes":"Take 5 minutes to know me!",
+        "take_tour":"Take the tour"
+    },
+    "tour": {
+        "menu": [
+            "Education",
+            "Technologies",
+            "Trips",
+            "Sport"
+        ]
+    }
 
 }

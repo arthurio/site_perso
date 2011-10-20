@@ -1,0 +1,20 @@
+<img id="left_arrow" src="{{STATIC_URL}}img/icons/arrow_left.png"/>
+
+<div id="menu">
+    <ul>
+        {% for item in data.tour.menu %}
+            {% if forloop.counter0 != 0 %}&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;{%endif%}
+            <li num="{{forloop.counter0}}" name="{{item|lower}}" {% if forloop.counter0 == 0 %}class="selected"{%endif%}>{{ item }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div id="tour_content">
+
+</div>
+
+<script id="mustache_sport" type="text/html">
+Sport
+</script>
+
+<img id="right_arrow" src="{{STATIC_URL}}img/icons/arrow_right.png"/>

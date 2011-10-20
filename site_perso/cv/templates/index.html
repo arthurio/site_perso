@@ -57,15 +57,6 @@ function convertToHtml(str)
   str = str.replace(/&#039;/g,"'");
   return str;
 }
-
-    var intro = new Array();
-    {% if data and data.intro %}
-    var i = 0;
-    {% for text in data.intro %}
-        intro[i] = convertToHtml("{{ text }}");
-        i++;
-    {% endfor %}
-    {% endif %}
 </script>
 <noscript>
     <div id="noscript">
@@ -113,7 +104,7 @@ function convertToHtml(str)
 <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 <script>!window.jQuery && document.write('<script src="{{ STATIC_URL }}lib/jquery-ui/jquery-1.4.4.min.js"><\/script>')</script>
-
+<script src="{{ STATIC_URL}}js/jquery.hotkeys-0.7.9.js" type="text/javascript"></script>
 <script src="{{ STATIC_URL}}js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
 <script src="{{ STATIC_URL}}js/script.js" type="text/javascript"></script> 
 
