@@ -34,6 +34,12 @@
             "Sport"
         ]
     },
-    "construction":"Site en cours de construction"
-
+    "construction":"Site en cours de construction",
+    "key_notification": {
+        "message":"Raccourcis:",
+        "tour":"(Tour)",
+        "tour_move":"Se déplacer",
+        "contact":"(Contact)",
+        "contact_popup":"Fermer la popup"
+    }
 }
