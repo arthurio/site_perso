@@ -299,7 +299,7 @@ $(document).ready(function() {
 // HOME
     $('#nav li[name=home]').click(function() {
         hideRight();
-        showRight('home');
+        showRight($('#home'));
     });
     $('#nav li[name=home]').click();
 
@@ -307,12 +307,11 @@ $(document).ready(function() {
         $('#bored').html(data.home.bored);
         $('#minutes').html(data.home.minutes);
         $('#take_tour h2').html(data.home.take_tour);
-        //$('#barrier h1').html(data.construction);
     }
 
     $('#take_tour').click(function() {
         hideRight();
-        showRight('tour');
+        showRight($('#tour'));
         bindArrows();
     });
 
@@ -326,13 +325,13 @@ $(document).ready(function() {
         $(document).unbind('keydown', tourArrow);
     }
 
-    $('#tour #left_arrow').click(tourArrow);
-    $('#tour #right_arrow').click(tourArrow);
+    $('#tour img.nav').click(tourArrow);
 
     function updateTour(data) {
         $('#tour li').html(function(source){
             $(this).html(data.tour.menu[source]);
         });
+        $('#tour_content h1').html(data.construction);
     }
 
     function tourArrow(event) {
@@ -341,7 +340,6 @@ $(document).ready(function() {
             event.stopPropagation();
             event.preventDefault();
             var toUnSelect = $('#tour li.selected');
-            $(toUnSelect).removeClass('selected');
             var new_location=0;
 
             if (event.keyCode == '39' || event.srcElement.id == 'right_arrow') { //right
@@ -352,7 +350,7 @@ $(document).ready(function() {
                 new_location = (parseInt($(toUnSelect).attr('num'))-1+$('#tour li').length)%$('#tour li').length;
             }
             var toSelect = $('#tour li')[new_location];
-            $(toSelect).addClass('selected');
+            $(toSelect).click();
             setTimeout(removeHover, 100);
         }
     }
@@ -361,13 +359,36 @@ $(document).ready(function() {
         $('#tour img').removeClass('hover');
     }
 
+    $('#tour div.tour_content[num=0]').show();
+
+    $('#tour li').click(function(){
+        var old_num = $('#tour li.selected').attr('num');
+        var new_num = $(this).attr('num');
+        var old_content = $('#tour .tour_content[num='+old_num+']');
+        var new_content =  $('#tour .tour_content[num='+new_num+']');
+
+        var last_to_first = (new_num==0) && (old_num==$('#tour li').length-1);
+        var first_to_last = (old_num==0) && (new_num==$('#tour li').length-1);
+
+        if (!first_to_last && (last_to_first || old_num < new_num)) {
+            old_content.hide('slide',{'direction':'right'},1000);
+            showRight(new_content);
+        } else {
+            old_content.hide('slide',{'direction':'left'},1000);
+            showLeft(new_content);
+        }
+        $('#tour li').removeClass('selected');
+        $(this).addClass('selected');
+
+    });
+
 // FOOTER
     $('#footer').show('slide',{'direction':'down'},1000);
 
 // RESUME
     $('#nav li[name=resume]').click(function() {
         hideRight();
-        showRight('resume');
+        showRight($('#resume'));
     });
 
     
@@ -381,7 +402,7 @@ $(document).ready(function() {
 // COMMON   
 
     var content = ['home','resume','tour'];
-    function hideRight() {
+    function hideRight(id) {
         for (id in content) {
             if ($('#'+content[id]).is(":visible")) {
                 if (content[id]=="tour") {
@@ -392,8 +413,12 @@ $(document).ready(function() {
         }
     }
 
-    function showRight(id) {
-        $('#'+id).show('slide',{'direction':'left'},1000);
+    function showRight(element) {
+        element.show('slide',{'direction':'left'},1000);
+    }
+
+    function showLeft(element) {
+        element.show('slide',{'direction':'right'},1000);
     }
 
     function simpleHide(ids) {

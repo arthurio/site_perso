@@ -448,7 +448,7 @@ button {
     min-height: 449px;
 }
 
-#tour img {
+#tour img.nav {
     position:absolute;
     top: 200px;
     cursor:pointer;
@@ -458,14 +458,14 @@ button {
     opacity: .3;
 }
 
-#tour img:hover {
+#tour img.nav:hover {
     filter: alpha(opacity=70);
     -khtml-opacity: .7;
     -moz-opacity: .7;
     opacity: .7;
 }
 
-#tour img.hover {
+#tour img.nav.hover {
     filter: alpha(opacity=70);
     -khtml-opacity: .7;
     -moz-opacity: .7;
@@ -481,7 +481,7 @@ button {
 }
 
 #tour #menu {
-    margin-top: 20px;
+    margin-top: 10px;
     text-align:center;
 }
 
@@ -503,13 +503,26 @@ button {
 }
 
 #tour #tour_content {
-    display:none;
-    width: 80%;
+    width:90%;
     margin:auto;
+    position: relative;
+    min-height:390px;
 }
 
-#tour #tour_content.formation {
-    display:block;
+#tour div.tour_content {
+    display:none;
+    width:100%;
+    top: 30px;
+    text-align: center;
+    position: absolute;
+}
+
+#tour #tour_content h1 {
+    color: #434343;
+    font-size: 40px;
+    font-weight: bold;
+    margin:0;
+    margin-bottom: 20px;
 }
 
 /*-=------------------------------------------------*/

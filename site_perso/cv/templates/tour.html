@@ -1,4 +1,4 @@
-<img id="left_arrow" src="{{STATIC_URL}}img/icons/arrow_left.png"/>
+<img id="left_arrow" class="nav" src="{{STATIC_URL}}img/icons/arrow_left.png"/>
 
 <div id="menu">
     <ul>
@@ -9,20 +9,26 @@
     </ul>
 </div>
 
-<div id="tour_content" class="formation" type="text/html">
-form
+<div id="tour_content">
+    <div class="tour_content" num="0" type="text/html">
+        <h1>{{ data.construction }}</h1>
+        <img src="{{STATIC_URL}}img/background/barrier.png"/>
+    </div>
+
+    <div class="tour_content" num="1" type="text/html">
+        <h1>{{ data.construction }}</h1>
+        <img src="{{STATIC_URL}}img/background/barrier.png"/>
+    </div>
+
+    <div class="tour_content" num="2" type="text/html">
+        <h1>{{ data.construction }}</h1>
+        <img src="{{STATIC_URL}}img/background/barrier.png"/>
+    </div>
+
+    <div class="tour_content" num="3" type="text/html">
+        <h1>{{ data.construction }}</h1>
+        <img src="{{STATIC_URL}}img/background/barrier.png"/>
+    </div>
 </div>
 
-<div id="tour_content" class="technologies" type="text/html">
-techno
-</div>
-
-<div id="tour_content" class="trips" type="text/html">
-trips
-</div>
-
-<div id="tour_content" class="sport" type="text/html">
-sport
-</div>
-
-<img id="right_arrow" src="{{STATIC_URL}}img/icons/arrow_right.png"/>
+<img id="right_arrow" class="nav" src="{{STATIC_URL}}img/icons/arrow_right.png"/>
