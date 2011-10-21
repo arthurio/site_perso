@@ -35,6 +35,7 @@ $(document).ready(function() {
         updateResume(data);
         updateHome(data);
         updateTour(data);
+        updateFooter(data);
     }
 
     function shake(html) {
@@ -387,6 +388,11 @@ $(document).ready(function() {
 
 // FOOTER
     $('#footer').show('slide',{'direction':'down'},1000);
+
+    function updateFooter(data) {
+        $('#key_tour').html(data.key_notification.tour_move+'&nbsp;'+data.key_notification.tour);
+        $('#key_popup').html(data.key_notification.contact_popup+'&nbsp;'+data.key_notification.contact);
+    }
 
 // RESUME
     $('#nav li[name=resume]').click(function() {

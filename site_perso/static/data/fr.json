@@ -36,7 +36,6 @@
     },
     "construction":"Site en cours de construction",
     "key_notification": {
-        "message":"Raccourcis:",
         "tour":"(Tour)",
         "tour_move":"Se déplacer",
         "contact":"(Contact)",

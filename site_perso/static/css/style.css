@@ -673,9 +673,10 @@ button {
 
 #footer {
     display:none;
-    padding: 5px;
     background: url(../img/background/blue_noise.png) transparent repeat;
     overflow: hidden;
+    padding-top: 4px;
+    padding-right: 5px;
 }
 
 div.fb-like {
@@ -683,15 +684,33 @@ div.fb-like {
 }
 
 #footer .socials_container {
-    margin-left:100px;
+    margin-left:50px;
+    margin-top: 3px;
     float: left;
     min-width: 308px;
 }
 
 #copyright {
+    font-weight:bold;
     margin-left: 50px;
     float: left;
     color: white;
     margin-top: 3px;
 }
 
+#shortcuts {
+    float: right;
+    color: white;
+    position:relative;
+    padding-top:3px;
+}
+
+#shortcuts span {
+    height:100%;
+    vertical-align: top;
+    padding-top: 3px;    
+}
+
+#shortcuts img {
+    margin-top: -3px;
+}
