@@ -450,12 +450,26 @@ button {
 
 #tour img {
     position:absolute;
+    top: 200px;
+    cursor:pointer;
+    filter: alpha(opacity=30);
+    -khtml-opacity: .3;
+    -moz-opacity: .3;
+    opacity: .3;
+}
+
+#tour img:hover {
     filter: alpha(opacity=70);
     -khtml-opacity: .7;
     -moz-opacity: .7;
     opacity: .7;
-    top: 200px;
-    cursor:pointer;
+}
+
+#tour img.hover {
+    filter: alpha(opacity=70);
+    -khtml-opacity: .7;
+    -moz-opacity: .7;
+    opacity: .7;
 }
 
 #tour #right_arrow {
@@ -488,8 +502,14 @@ button {
     color: #0097C5;
 }
 
-#tour #content {
+#tour #tour_content {
+    display:none;
+    width: 80%;
+    margin:auto;
+}
 
+#tour #tour_content.formation {
+    display:block;
 }
 
 /*-=------------------------------------------------*/

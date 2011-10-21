@@ -1,4 +1,4 @@
-/* Author: 
+/* Author: Arthur Rio
 
 */
 
@@ -6,7 +6,7 @@
 (function($){
 })(window.jQuery);
 
-//Begin Core PunchTab Javascript
+//Begin Javascript
 $(document).ready(function() {
 
     var fr_url = '/static/data/fr.json';
@@ -319,19 +319,15 @@ $(document).ready(function() {
 // TOUR
 
     function bindArrows() {
-        console.log('bind arrows');
-        $(document).bind('keydown', 'right', tourRight);
-        $(document).bind('keydown', 'left', tourLeft);
+        $(document).bind('keydown', tourArrow);
     }
 
     function unbindArrows() {
-        console.log('unbindArrows');
-        $(document).unbind('keydown', 'right', tourRight);
-        $(document).unbind('keydown', 'left', tourLeft);
+        $(document).unbind('keydown', tourArrow);
     }
 
-    $('#tour #left_arrow').click(tourLeft);
-    $('#tour #right_arrow').click(tourRight);
+    $('#tour #left_arrow').click(tourArrow);
+    $('#tour #right_arrow').click(tourArrow);
 
     function updateTour(data) {
         $('#tour li').html(function(source){
@@ -339,21 +335,32 @@ $(document).ready(function() {
         });
     }
 
-    function tourRight(event) {
-        event.preventDefault();
-        var toUnSelect = $('#tour li.selected');
-        $(toUnSelect).removeClass('selected');
-        var toSelect = $('#tour li')[(parseInt($(toUnSelect).attr('num'))+1)%$('#tour li').length];
-        $(toSelect).addClass('selected');
+    function tourArrow(event) {
+        
+        if (event.keyCode == '39' || event.keyCode == '37' || event.srcElement.id == 'right_arrow' || event.srcElement.id == 'left_arrow') {
+            event.stopPropagation();
+            event.preventDefault();
+            var toUnSelect = $('#tour li.selected');
+            $(toUnSelect).removeClass('selected');
+            var new_location=0;
+
+            if (event.keyCode == '39' || event.srcElement.id == 'right_arrow') { //right
+                $('#tour #right_arrow').addClass('hover');
+                new_location = (parseInt($(toUnSelect).attr('num'))+1)%$('#tour li').length;
+            } else if (event.keyCode == '37' || event.srcElement.id == 'left_arrow') { // left
+                $('#tour #left_arrow').addClass('hover');
+                new_location = (parseInt($(toUnSelect).attr('num'))-1+$('#tour li').length)%$('#tour li').length;
+            }
+            var toSelect = $('#tour li')[new_location];
+            $(toSelect).addClass('selected');
+            setTimeout(removeHover, 100);
+        }
+    }
+    
+    function removeHover() {
+        $('#tour img').removeClass('hover');
     }
 
-    function tourLeft(event) {
-        event.preventDefault();
-        var toUnSelect = $('#tour li.selected');
-        toUnSelect.removeClass('selected');
-        var toSelect = $('#tour li')[(parseInt($(toUnSelect).attr('num'))-1+$('#tour li').length)%$('#tour li').length];
-        $(toSelect).addClass('selected');
-    }
 // FOOTER
     $('#footer').show('slide',{'direction':'down'},1000);
 
@@ -377,7 +384,7 @@ $(document).ready(function() {
     function hideRight() {
         for (id in content) {
             if ($('#'+content[id]).is(":visible")) {
-                if (id=="tour") {
+                if (content[id]=="tour") {
                     unbindArrows();
                 }
                 $('#'+content[id]).hide('slide',{'direction':'right'},1000);
