@@ -318,6 +318,8 @@ $(document).ready(function() {
 
 // TOUR
 
+    var key_lock = false;
+
     function bindArrows() {
         $(document).bind('keydown', tourArrow);
     }
@@ -336,23 +338,25 @@ $(document).ready(function() {
     }
 
     function tourArrow(event) {
-        
-        if (event.keyCode == '39' || event.keyCode == '37' || event.srcElement.id == 'right_arrow' || event.srcElement.id == 'left_arrow') {
-            event.stopPropagation();
-            event.preventDefault();
-            var toUnSelect = $('#tour li.selected');
-            var new_location=0;
+        if (!key_lock) {
+            key_lock = true;
+            if (event.keyCode == '39' || event.keyCode == '37' || event.srcElement.id == 'right_arrow' || event.srcElement.id == 'left_arrow') {
+                event.stopPropagation();
+                event.preventDefault();
+                var toUnSelect = $('#tour li.selected');
+                var new_location=0;
 
-            if (event.keyCode == '39' || event.srcElement.id == 'right_arrow') { //right
-                $('#tour #right_arrow').addClass('hover');
-                new_location = (parseInt($(toUnSelect).attr('num'))+1)%$('#tour li').length;
-            } else if (event.keyCode == '37' || event.srcElement.id == 'left_arrow') { // left
-                $('#tour #left_arrow').addClass('hover');
-                new_location = (parseInt($(toUnSelect).attr('num'))-1+$('#tour li').length)%$('#tour li').length;
+                if (event.keyCode == '39' || event.srcElement.id == 'right_arrow') { //right
+                    $('#tour #right_arrow').addClass('hover');
+                    new_location = (parseInt($(toUnSelect).attr('num'))+1)%$('#tour li').length;
+                } else if (event.keyCode == '37' || event.srcElement.id == 'left_arrow') { // left
+                    $('#tour #left_arrow').addClass('hover');
+                    new_location = (parseInt($(toUnSelect).attr('num'))-1+$('#tour li').length)%$('#tour li').length;
+                }
+                var toSelect = $('#tour li')[new_location];
+                $(toSelect).click();
+                setTimeout(removeHover, 100);
             }
-            var toSelect = $('#tour li')[new_location];
-            $(toSelect).click();
-            setTimeout(removeHover, 100);
         }
     }
     
@@ -383,6 +387,7 @@ $(document).ready(function() {
             $('#tour li').removeClass('selected');
             $(this).addClass('selected');
         }
+
 
     });
 
@@ -425,14 +430,16 @@ $(document).ready(function() {
     }
 
     function showRight(element) {
-        if (!element.is(":visible")){
+        if (!element.is(":visible") || key_lock){
             element.show('slide',{'direction':'left'},1000);
+            key_lock = false;
         }
     }
 
     function showLeft(element) {
-        if (!element.is(":visible")){
+        if (!element.is(":visible") || key_lock){
             element.show('slide',{'direction':'right'},1000);
+            key_lock = false;
         }
     }
 
