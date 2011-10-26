@@ -81,7 +81,7 @@ $(document).ready(function() {
         },
         setContent: function(content) {
             $('#popup .content').html(content);
-        },
+        }
     }
 
 
@@ -340,16 +340,16 @@ $(document).ready(function() {
     function tourArrow(event) {
         if (!key_lock) {
             key_lock = true;
-            if (event.keyCode == '39' || event.keyCode == '37' || event.srcElement.id == 'right_arrow' || event.srcElement.id == 'left_arrow') {
+            if (event.keyCode == '39' || event.keyCode == '37' || (typeof event.srcElement != 'undefined' && (event.srcElement.id == 'right_arrow' || event.srcElement.id == 'left_arrow'))) {
                 event.stopPropagation();
                 event.preventDefault();
                 var toUnSelect = $('#tour li.selected');
                 var new_location=0;
 
-                if (event.keyCode == '39' || event.srcElement.id == 'right_arrow') { //right
+                if (event.keyCode == '39' ||  (typeof event.srcElement != 'undefined' && event.srcElement.id == 'right_arrow')) { //right
                     $('#tour #right_arrow').addClass('hover');
                     new_location = (parseInt($(toUnSelect).attr('num'))+1)%$('#tour li').length;
-                } else if (event.keyCode == '37' || event.srcElement.id == 'left_arrow') { // left
+                } else if (event.keyCode == '37' ||  (typeof event.srcElement != 'undefined' && event.srcElement.id == 'left_arrow')) { // left
                     $('#tour #left_arrow').addClass('hover');
                     new_location = (parseInt($(toUnSelect).attr('num'))-1+$('#tour li').length)%$('#tour li').length;
                 }
