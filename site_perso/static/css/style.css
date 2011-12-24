@@ -504,11 +504,11 @@ button {
     font-weight: bold;
 }
 
-#tour #menu li.selected {
+#tour #menu li.active {
     color: #0097C5;
 }
 
-#tour #tour_content {
+/*#tour #tour_content {
     width:90%;
     margin:auto;
     position: relative;
@@ -521,8 +521,26 @@ button {
     top: 30px;
     text-align: center;
     position: absolute;
+}*/
+
+.slider {
+    position: relative;
+    overflow: hidden;
+}
+.slides {
+    overflow: hidden;
+}
+.slide {
+    float: left;
 }
 
+#tour .slider {
+    margin: 20px 100px;
+}
+
+#tour .slide {
+    width:1240px;
+}
 #tour #tour_content h1 {
     color: #434343;
     font-size: 40px;

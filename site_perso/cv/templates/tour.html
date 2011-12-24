@@ -1,7 +1,7 @@
-<img id="left_arrow" class="nav" src="{{STATIC_URL}}img/icons/arrow_left.png"/>
+<img id="left_arrow" class="previous nav" src="{{STATIC_URL}}img/icons/arrow_left.png"/>
 
 <div id="menu">
-    <ul>
+    <ul class="pagination">
         {% for item in data.tour.menu %}
             {% if forloop.counter0 != 0 %}&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;{%endif%}
             <li num="{{forloop.counter0}}" name="{{item|lower}}" {% if forloop.counter0 == 0 %}class="selected"{%endif%}>{{ item }}</li>
@@ -9,26 +9,28 @@
     </ul>
 </div>
 
-<div id="tour_content">
-    <div class="tour_content" num="0" type="text/html">
-        <h1>{{ data.construction }}</h1>
-        <img src="{{STATIC_URL}}img/background/barrier.png"/>
-    </div>
+<div id="tour_content" class="slider">
+    <div class="slides">
+        <div class="slide">
+            <h1>{{ data.construction }}</h1>
+            <img src="{{STATIC_URL}}img/background/barrier.png"/>
+        </div>
 
-    <div class="tour_content" num="1" type="text/html">
-        <h1>{{ data.construction }}</h1>
-        <img src="{{STATIC_URL}}img/background/barrier.png"/>
-    </div>
+        <div class="slide" style="display: none;">
+            <h1>{{ data.construction }}</h1>
+            <img src="{{STATIC_URL}}img/background/barrier.png"/>
+        </div>
 
-    <div class="tour_content" num="2" type="text/html">
-        <h1>{{ data.construction }}</h1>
-        <img src="{{STATIC_URL}}img/background/barrier.png"/>
-    </div>
+        <div class="slide" style="display: none;">
+            <h1>{{ data.construction }}</h1>
+            <img src="{{STATIC_URL}}img/background/barrier.png"/>
+        </div>
 
-    <div class="tour_content" num="3" type="text/html">
-        <h1>{{ data.construction }}</h1>
-        <img src="{{STATIC_URL}}img/background/barrier.png"/>
+        <div class="slide" style="display: none;">
+            <h1>{{ data.construction }}</h1>
+            <img src="{{STATIC_URL}}img/background/barrier.png"/>
+        </div>
     </div>
 </div>
 
-<img id="right_arrow" class="nav" src="{{STATIC_URL}}img/icons/arrow_right.png"/>
+<img id="right_arrow" class="next nav" src="{{STATIC_URL}}img/icons/arrow_right.png"/>

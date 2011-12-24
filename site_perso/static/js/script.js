@@ -65,13 +65,15 @@ $(document).ready(function() {
         show: function() {
             $('#main_container').addClass('overlay');
             $('#popup').fadeIn();
-            $(document).bind('keydown', 'esc', POPUP.hide);
+            $(document).bind('keydown', POPUP.hide);
         },
-        hide: function() {
-            $('#popup .close_button').unbind('click');
-            $(document).unbind('keydown','esc', POPUP.hide);
-            $('#main_container').removeClass('overlay');
-            $('#popup').hide('clip',700);
+        hide: function(e) {
+            if (e.keyCode == 27) {
+                $('#popup .close_button').unbind('click');
+                $(document).unbind('keydown', POPUP.hide);
+                $('#main_container').removeClass('overlay');
+                $('#popup').hide('clip',700);
+            }
         },
         send: function() {
             $('#popup #sound').append('<embed src="/static/sound/send.wav" autostart="true" hidden="true" loop="false"/>');
@@ -313,22 +315,11 @@ $(document).ready(function() {
     $('#take_tour').click(function() {
         hideRight('tour');
         showRight($('#tour'));
-        bindArrows();
+        slider.init();
+        initArrows();
     });
 
 // TOUR
-
-    var key_lock = false;
-
-    function bindArrows() {
-        $(document).bind('keydown', tourArrow);
-    }
-
-    function unbindArrows() {
-        $(document).unbind('keydown', tourArrow);
-    }
-
-    $('#tour img.nav').click(tourArrow);
 
     function updateTour(data) {
         $('#tour li').html(function(source){
@@ -337,62 +328,26 @@ $(document).ready(function() {
         $('#tour_content h1').html(data.construction);
     }
 
-    function tourArrow(event) {
-        if (!key_lock) {
-            key_lock = true;
-            if (event.keyCode == '39' || event.keyCode == '37' || (typeof event.srcElement != 'undefined' && (event.srcElement.id == 'right_arrow' || event.srcElement.id == 'left_arrow'))) {
-                event.stopPropagation();
-                event.preventDefault();
-                var toUnSelect = $('#tour li.selected');
-                var new_location=0;
-
-                if (event.keyCode == '39' ||  (typeof event.srcElement != 'undefined' && event.srcElement.id == 'right_arrow')) { //right
-                    $('#tour #right_arrow').addClass('hover');
-                    new_location = (parseInt($(toUnSelect).attr('num'))+1)%$('#tour li').length;
-                } else if (event.keyCode == '37' ||  (typeof event.srcElement != 'undefined' && event.srcElement.id == 'left_arrow')) { // left
-                    $('#tour #left_arrow').addClass('hover');
-                    new_location = (parseInt($(toUnSelect).attr('num'))-1+$('#tour li').length)%$('#tour li').length;
-                }
-                var toSelect = $('#tour li')[new_location];
-                $(toSelect).click();
-                setTimeout(removeHover, 100);
-            }
-        }
+    function initArrows() {
+        $(document).bind('keydown', setArrowHover);
     }
     
-    function removeHover() {
+    function setArrowHover(e) {
+        if (e.keyCode == '39') {
+            $('#tour #right_arrow').addClass('hover');
+            setTimeout(removeArrowHover, 100);
+        } else if (e.keyCode == '37') {
+            $('#tour #left_arrow').addClass('hover');
+            setTimeout(removeArrowHover, 100);
+        }
+    }
+
+    function removeArrowHover() {
         $('#tour img').removeClass('hover');
     }
 
-    $('#tour div.tour_content[num=0]').show();
-
-    $('#tour li').click(function(){
-        var old_num = $('#tour li.selected').attr('num');
-        var new_num = $(this).attr('num');
-
-        if (old_num != new_num) {
-            var old_content = $('#tour .tour_content[num='+old_num+']');
-            var new_content =  $('#tour .tour_content[num='+new_num+']');
-
-            var last_to_first = (new_num==0) && (old_num==$('#tour li').length-1);
-            var first_to_last = (old_num==0) && (new_num==$('#tour li').length-1);
-
-            if (!first_to_last && (last_to_first || old_num < new_num)) {
-                old_content.hide('slide',{'direction':'right'},1000);
-                showRight(new_content);
-            } else {
-                old_content.hide('slide',{'direction':'left'},1000);
-                showLeft(new_content);
-            }
-            $('#tour li').removeClass('selected');
-            $(this).addClass('selected');
-        }
-
-
-    });
-
 // FOOTER
-    $('#footer').show('slide',{'direction':'down'},1000);
+    //$('#footer').show('slide',{'direction':'down'},1000);
 
     function updateFooter(data) {
         $('#key_tour').html(data.key_notification.tour_move+'&nbsp;'+data.key_notification.tour);
@@ -420,13 +375,11 @@ $(document).ready(function() {
         if (!$('#'+element).is(":visible")){
             for (id in content) {
                 if ($('#'+content[id]).is(":visible")) {
-                    if (content[id]=="tour") {
-                        unbindArrows();
-                    }
                     $('#'+content[id]).hide('slide',{'direction':'right'},1000);
                 }
             }
         }
+        $(document).unbind('keydown', setArrowHover);
     }
 
     function showRight(element) {
