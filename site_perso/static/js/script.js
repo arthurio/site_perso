@@ -66,13 +66,16 @@ $(document).ready(function() {
             $('#main_container').addClass('overlay');
             $('#popup').fadeIn();
             $(document).bind('keydown', POPUP.hide);
+            $('#popup .close_button').bind('click', POPUP.hide);
         },
         hide: function(e) {
-            if (e.keyCode == 27) {
-                $('#popup .close_button').unbind('click');
-                $(document).unbind('keydown', POPUP.hide);
-                $('#main_container').removeClass('overlay');
-                $('#popup').hide('clip',700);
+            if (typeof e != "undefined") {
+                if (e.type == "click" || e.keyCode == 27) {
+                    $('#popup .close_button').unbind('click');
+                    $(document).unbind('keydown', POPUP.hide);
+                    $('#main_container').removeClass('overlay');
+                    $('#popup').hide('clip',700);
+                }
             }
         },
         send: function() {
