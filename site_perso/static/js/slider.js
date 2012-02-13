@@ -60,7 +60,7 @@ var slider = {
         slider.elements.pagination.children().each(function (i) {
             $(this).click(function () {
                 slider.current = slider.place(i);
-                slider.animate({marginLeft: -slider.positions[slider.current]}); 
+                slider.animate(true); 
                 return false;
             });
         });
