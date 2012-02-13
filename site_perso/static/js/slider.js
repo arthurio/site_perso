@@ -1,4 +1,3 @@
-/* SLIDER */
 var slider = {
     positions: [],
     width: 0,
@@ -23,6 +22,10 @@ var slider = {
     hide: true,
 
     init: function () {
+        slider.width = 0;
+        slider.current = 0;
+        slider.length = 0;
+
         slider.elements.container.find('.slide').each(function (i) {
             slider.positions[i] = slider.width;
             slider.width += $(this).outerWidth();
@@ -38,6 +41,7 @@ var slider = {
         slider.elements.container.width(slider.width);
 
         slider.place(slider.current);
+        slider.animate();
         // Previous / Next buttons
         slider.elements.next.click(function () {
             return slider.bind.next();
@@ -70,7 +74,7 @@ var slider = {
             clearInterval(slider.timeout);
             slider.loop();
             slider.callback[name] && (cb = slider.callback[name]());
-            if (cb !== false) {
+            if (cb) {
                 slider[name]();
             }
             return false;
@@ -129,20 +133,25 @@ var slider = {
         var old = slider.current;
         slider.current = slider.place(old+1);
         if (slider.current !== old) {
-            slider.animate({marginLeft: -slider.positions[slider.current]});
+            slider.animate(true);
         } 
     },
     previous: function () {
         var old = slider.current;
         slider.current = slider.place(old-1);
         if (slider.current !== old) {
-            slider.animate({marginLeft: -slider.positions[slider.current]});
+            slider.animate(true);
         } else {
             slider.elements.previous.hide();
         }
     },
-    animate: function (arg) {
-        slider.elements.container.stop().animate(arg, slider.duration);
+    animate: function (animate) {
+        var args = {marginLeft: -slider.positions[slider.current]};
+        if (animate) {
+            slider.elements.container.stop().animate(args, slider.duration);
+        }
+        else {
+            slider.elements.container.css(args);
+        }
     }
 };
-
