@@ -327,6 +327,35 @@ $(document).ready(function() {
         initArrows();
     });
 
+    $('#tour_content #pins img').mouseover(function (e) {
+        if (this.height == 40) {
+            var src = $(this).attr('src').split('_40');
+            $(this).attr('src', src[0]+'_60'+src[1]);
+            $(this).animate({
+                height: '60',
+                top: '-=10',
+                left: '-=10'
+            }, 300, function() {
+                // Animation complete.
+            });
+        }
+    });
+
+    $('#tour_content #pins img').mouseout(function (e) {
+        var src = $(this).attr('src').split('_60');
+        if (src.length == 2) {
+            $(this).attr('src', src[0]+'_40'+src[1]);
+            $(this).animate({
+                height: '40',
+                top: '+=10',
+                left: '+=10'
+            }, 300, function() {
+                // Animation complete.
+            }); 
+        }
+    });
+
+        
 // TOUR
 
     function updateTour(data) {

@@ -599,6 +599,38 @@ button {
     width: 3%;
 }
 
+#tour #tour_content .timeline #line #pins {
+    position: absolute;
+    left: 0;
+}
+
+#tour #tour_content .timeline #line #pins img {
+    position: absolute;
+    cursor: pointer;
+    height: 40px;
+}
+
+#tour #tour_content .timeline #line #pins img.cnieg {
+    left: 140px;
+}
+
+#tour #tour_content .timeline #line #pins img.ysi {
+    left: 385px;
+}
+
+#tour #tour_content .timeline #line #pins img.scut {
+    left: 625px;
+}
+
+#tour #tour_content .timeline #line #pins img.linnaeus {
+    left: 795px;
+    top: -15px;
+}
+
+#tour #tour_content .timeline #line #pins img.capgemini {
+    left: 1000px;
+}
+
 #tour #tour_content .timeline #projects img.cnieg {
     margin: 0 75px;
 }
