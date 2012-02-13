@@ -315,10 +315,15 @@ $(document).ready(function() {
         $('#take_tour h2').html(data.home.take_tour);
     }
 
+    var slider_init = false;
     $('#take_tour').click(function() {
         hideRight('tour');
         showRight($('#tour'));
-        slider.init();
+        if (!slider_init) {
+            slider.current = 1;
+            slider.init();
+            slider_init = true;
+        }
         initArrows();
     });
 
