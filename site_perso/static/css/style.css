@@ -353,10 +353,6 @@ button {
     color: white;
     padding: 5px;
     background: url(../img/background/darkGray_noise_bg.png) repeat;
-    filter: alpha(opacity=70);
-    -khtml-opacity: .7;
-    -moz-opacity: .7;
-    opacity: .7;
     width: 286px; 
     cursor: pointer;
     border: #0097C5 solid 1px;
@@ -368,10 +364,10 @@ button {
 }
 
 #home #take_tour:hover {
-    filter: alpha(opacity=100);
-    -khtml-opacity: 1;
-    -moz-opacity: 1;
-    opacity: 1;
+    filter: alpha(opacity=70);
+    -khtml-opacity: .7;
+    -moz-opacity: .7;
+    opacity: .7;
 }
 
 /*-=------------------------------------------------*/
