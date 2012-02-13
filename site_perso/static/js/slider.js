@@ -25,6 +25,7 @@ var slider = {
         slider.width = 0;
         slider.current = 0;
         slider.length = 0;
+        slider.positions = [];
 
         slider.elements.container.find('.slide').each(function (i) {
             slider.positions[i] = slider.width;
@@ -60,7 +61,7 @@ var slider = {
         slider.elements.pagination.children().each(function (i) {
             $(this).click(function () {
                 slider.current = slider.place(i);
-                slider.animate(true); 
+                slider.animate(); 
                 return false;
             });
         });
@@ -133,21 +134,21 @@ var slider = {
         var old = slider.current;
         slider.current = slider.place(old+1);
         if (slider.current !== old) {
-            slider.animate(true);
+            slider.animate();
         } 
     },
     previous: function () {
         var old = slider.current;
         slider.current = slider.place(old-1);
         if (slider.current !== old) {
-            slider.animate(true);
+            slider.animate();
         } else {
             slider.elements.previous.hide();
         }
     },
-    animate: function (animate) {
+    animate: function () {
         var args = {marginLeft: -slider.positions[slider.current]};
-        if (animate) {
+        if (typeof animate !== undefined) {
             slider.elements.container.stop().animate(args, slider.duration);
         }
         else {
