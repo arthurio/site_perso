@@ -11,9 +11,38 @@
 
 <div id="tour_content" class="slider">
     <div class="slides">
-        <div class="slide">
-            <h1>{{ data.construction }}</h1>
-            <img src="{{STATIC_URL}}img/background/barrier.png"/>
+        <div class="slide timeline">
+            <div id="schools">
+                <img class="iut" src="{{STATIC_URL}}img/logos/iut_medium.jpg"/>
+                <img class="polytech" src="{{STATIC_URL}}img/logos/polytech_medium.jpg"/>
+                <img class="linnaeus" src="{{STATIC_URL}}img/logos/linnaeus_medium.png"/>
+            </div>
+            <div id="line">
+                <div class="short">
+                    <label>2006</label>
+                    <label>2007</label>
+                    <label>2008</label>
+                </div>
+                <div class="large">
+                    <label>2009</label>
+                    <label>2010</label>
+                </div>
+                <div class="short">
+                    <label>2011</label>
+                </div>
+
+                <div class="continue iut"></div>
+                <div class="continue polytech"></div>
+                <div class="continue linnaeus"></div>
+                <div class="continue polytech-end"></div>
+                <div class="dashed"></div>
+            </div>
+            <div id="projects">
+                <img class="cnieg" src="{{STATIC_URL}}img/logos/cnieg_medium.jpg"/>
+                <img src="{{STATIC_URL}}img/logos/yousendit_medium.jpg"/>
+                <img class="scut" src="{{STATIC_URL}}img/logos/scut_medium.jpg"/>
+                <img src="{{STATIC_URL}}img/logos/capgemini_medium.jpg"/>
+            </div>
         </div>
 
         <div class="slide" style="display: none;">

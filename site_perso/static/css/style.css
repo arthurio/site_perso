@@ -545,6 +545,68 @@ button {
     margin-bottom: 20px;
 }
 
+#tour #tour_content .timeline #schools {
+    margin-top: 20px;
+}
+
+#tour #tour_content .timeline #schools .iut {
+    margin: 0 0 0 67px;
+}
+
+#tour #tour_content .timeline #schools .polytech {
+    margin: 0 115px 0 150px;
+}
+
+#tour #tour_content .timeline #line {
+    margin: 50px 0;
+    display: inline-block;
+}
+
+#tour #tour_content .timeline #line .short label {
+    margin-right: 50px;
+}
+
+#tour #tour_content .timeline #line .large label {
+    margin-right: 380px;
+}
+
+#tour #tour_content .timeline #line div {
+    display: inline-block;
+}
+
+#tour #tour_content .timeline #line div.continue.iut {
+    border-bottom: 7px solid #BD3129;
+    width: 16.5%
+}
+
+#tour #tour_content .timeline #line div.continue.polytech {
+    border-bottom: 7px solid #0097C5;
+    width: 41.5%;
+}
+
+#tour #tour_content .timeline #line div.continue.linnaeus {
+    border-bottom: 7px solid #FCFC00;
+    width: 17.5%;
+}
+
+#tour #tour_content .timeline #line div.continue.polytech-end {
+    border-bottom: 7px solid #0097C5;
+    width: 17.5%;
+}
+
+#tour #tour_content .timeline #line div.dashed {
+    border-bottom: 7px dotted black;
+    width: 3%;
+}
+
+#tour #tour_content .timeline #projects img.cnieg {
+    margin: 0 75px;
+}
+
+#tour #tour_content .timeline #projects img.scut {
+    margin: 0 140px 0 95px;
+}
+
 /*-=------------------------------------------------*/
 /*                    CONTACT                       */
 /*--------------------------------------------------*/
