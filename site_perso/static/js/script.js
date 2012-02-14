@@ -363,6 +363,11 @@ $(document).ready(function() {
             $(this).html(data.tour.menu[source]);
         });
         $('#tour_content h1').html(data.construction);
+        $('#pins img').attr('tooltip', function() {
+            return data.tour.tooltip[$(this).attr('class')];
+        });
+
+        bindTooltip();
     }
 
     function initArrows() {
@@ -382,6 +387,12 @@ $(document).ready(function() {
     function removeArrowHover() {
         $('#tour img').removeClass('hover');
     }
+
+    function bindTooltip() {
+        $('#pins img').tipTip({attribute: "tooltip",defaultPosition:"top", maxWidth: '255px', edgeOffset: 9});
+    }
+
+    bindTooltip();
 
 // FOOTER
     $('#footer').show('slide',{'direction':'down'},1000);

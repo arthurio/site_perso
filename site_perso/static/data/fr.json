@@ -32,7 +32,14 @@
             "Technologies",
             "Voyages",
             "Sport"
-        ]
+        ],
+        "tooltip": {
+            "cnieg": "Stage de fin d'études. Durée: 10 jours. Technologies: Java, GWT, Spring, Hibernate, Oracle.",
+            "ysi": "Projet de 4ème année. Durée: 1 an. Technologies: C#, Microsoft Exchange, Windows server 2003.",
+            "scut": "Stage de fin de 4ème année. Durée: 3 mois. Technologies: Modélisation d'un réseau pair-à-pair NetLogo.",
+            "linnaeus": "Semestre 9 en Erasmus. Durée: 5 mois. Technologies: C#, Java, Web Services.",
+            "capgemini": "Stage de fin d'études. Durée: 5 mois. Technologies: Java, Oracle, Flex, Hibernate, Spring, FitNess, UML."
+        }
     },
     "construction":"Site en cours de construction",
     "key_notification": {

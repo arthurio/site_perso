@@ -443,6 +443,14 @@ button {
 /*                       TOUR                       */
 /*--------------------------------------------------*/
 
+#tiptip_arrow {
+    display: none !important;
+}
+
+#tiptip_holder #tiptip_content {
+    font-size: 14px;
+}
+
 #tour {
     position: absolute;
     width: 100%;
