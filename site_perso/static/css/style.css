@@ -532,10 +532,13 @@ button {
 
 #tour .slider {
     margin: 20px 100px;
+    width: 1100px;
+    margin: auto;    
 }
 
 #tour .slide {
-    width:1240px;
+    width:1110px;
+    position: relative;
 }
 #tour #tour_content h1 {
     color: #434343;
@@ -554,7 +557,7 @@ button {
 }
 
 #tour #tour_content .timeline #schools .polytech {
-    margin: 0 115px 0 150px;
+    margin: 0 105px 0 110px;
 }
 
 #tour #tour_content .timeline #line {
@@ -563,11 +566,11 @@ button {
 }
 
 #tour #tour_content .timeline #line .short label {
-    margin-right: 50px;
+    margin-right: 41px;
 }
 
 #tour #tour_content .timeline #line .large label {
-    margin-right: 380px;
+    margin-right: 345px;
 }
 
 #tour #tour_content .timeline #line div {
@@ -615,28 +618,28 @@ button {
 }
 
 #tour #tour_content .timeline #line #pins img.ysi {
-    left: 385px;
+    left: 355px;
 }
 
 #tour #tour_content .timeline #line #pins img.scut {
-    left: 625px;
+    left: 570px;
 }
 
 #tour #tour_content .timeline #line #pins img.linnaeus {
-    left: 795px;
+    left: 735px;
     top: -15px;
 }
 
 #tour #tour_content .timeline #line #pins img.capgemini {
-    left: 1000px;
+    left: 930px;
 }
 
 #tour #tour_content .timeline #projects img.cnieg {
-    margin: 0 75px;
+    margin: 0 60px;
 }
 
 #tour #tour_content .timeline #projects img.scut {
-    margin: 0 140px 0 95px;
+    margin: 0 80px 0 75px;
 }
 
 /*-=------------------------------------------------*/
