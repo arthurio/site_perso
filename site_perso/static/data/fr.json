@@ -30,15 +30,46 @@
         "menu": [
             "Formation",
             "Technologies",
-            "Voyages",
-            "Sport"
+            "International",
+            "Sports"
         ],
-        "tooltip": {
+        "formation": {
             "cnieg": "Stage de fin d'études. Durée: 10 jours. Technologies: Java, GWT, Spring, Hibernate, Oracle.",
             "ysi": "Projet de 4ème année. Durée: 1 an. Technologies: C#, Microsoft Exchange, Windows server 2003.",
             "scut": "Stage de fin de 4ème année. Durée: 3 mois. Technologies: Modélisation d'un réseau pair-à-pair NetLogo.",
             "linnaeus": "Semestre 9 en Erasmus. Durée: 5 mois. Technologies: C#, Java, Web Services.",
             "capgemini": "Stage de fin d'études. Durée: 5 mois. Technologies: Java, Oracle, Flex, Hibernate, Spring, FitNess, UML."
+        },
+        "technologies": {
+            "java": "Java",
+            "csharp": "C#",
+            "tomcat": "Apache Tomcat",
+            "oracle": "Oracle",
+            "hibernate": "Hibernate",
+            "spring": "Spring",
+            "mysql": "Mysql",
+            "gwt": "Google Web Toolkit",
+            "flex": "Adobe Flex",
+            "html5": "HTML5",
+            "javascript": "Javascript",
+            "python": "Python",
+            "django": "Django"
+        },
+        "international": {
+            "france": "France - Lieu de naissance",
+            "china": "Chine - Stage de 3 mois à la South China University of Technology",
+            "usa": "États-Unis d'Amérique - Lieu de résidence actuel - Travail chez PunchTab",
+            "sweden": "Suède - Semestre 9 d'École d'ingénieur à l'Université de Växjö"
+        },
+        "sports": {
+            "rink": "Rink Hockey",
+            "ice": "Hockey sur glace",
+            "ski": "Ski",
+            "golf": "Golf",
+            "training": "Entraîneur",
+            "roller": "Roller",
+            "skydiving": "Saut en parachute",
+            "bungee_jumping": "Saut à l'élastique"
         }
     },
     "construction":"Site en cours de construction",

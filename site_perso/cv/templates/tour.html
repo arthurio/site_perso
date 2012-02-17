@@ -13,9 +13,9 @@
     <div class="slides">
         <div class="slide timeline">
             <div id="schools">
-                <a href="http://www.iutnantes.univ-nantes.fr/" target="_blank"><img class="iut" src="{{STATIC_URL}}img/logos/iut_medium.jpg"/></a>
-                <a href="http://www.polytech.univ-nantes.fr/" target="_blank"><img class="polytech" src="{{STATIC_URL}}img/logos/polytech_medium.jpg"/></a>
-                <a href="http://lnu.se/?l=en" target="_blank"><img class="linnaeus" src="{{STATIC_URL}}img/logos/linnaeus_medium.png"/></a>
+                <a href="http://www.iutnantes.univ-nantes.fr/" target="_blank"><img class="iut" src="{{STATIC_URL}}img/logos/schools/iut_medium.jpg"/></a>
+                <a href="http://www.polytech.univ-nantes.fr/" target="_blank"><img class="polytech" src="{{STATIC_URL}}img/logos/schools/polytech_medium.jpg"/></a>
+                <a href="http://lnu.se/?l=en" target="_blank"><img class="linnaeus" src="{{STATIC_URL}}img/logos/schools/linnaeus_medium.png"/></a>
             </div>
             <div id="line">
                 <div class="short">
@@ -37,37 +37,62 @@
                 <div class="continue polytech-end"></div>
                 <div class="dashed"></div>
                 
-                <div id="pins">
-                    <img class="cnieg" src="{{STATIC_URL}}img/icons/pin_red_40.png" tooltip="{{data.tour.tooltip.cnieg}}"/>
-                    <img class="ysi" src="{{STATIC_URL}}img/icons/pin_blue_40.png" tooltip="{{data.tour.tooltip.ysi}}"/>
-                    <img class="scut" src="{{STATIC_URL}}img/icons/pin_blue_40.png" tooltip="{{data.tour.tooltip.scut}}"/>
-                    <img class="linnaeus" src="{{STATIC_URL}}img/icons/pin_yellow_revert_40.png" tooltip="{{data.tour.tooltip.linnaeus}}"/>
-                    <img class="capgemini" src="{{STATIC_URL}}img/icons/pin_blue_40.png" tooltip="{{data.tour.tooltip.capgemini}}"/>
+                <div id="formation">
+                    <img class="cnieg" src="{{STATIC_URL}}img/icons/pin_red_40.png" tooltip="{{data.tour.formation.cnieg}}"/>
+                    <img class="ysi" src="{{STATIC_URL}}img/icons/pin_blue_40.png" tooltip="{{data.tour.formation.ysi}}"/>
+                    <img class="scut" src="{{STATIC_URL}}img/icons/pin_blue_40.png" tooltip="{{data.tour.formation.scut}}"/>
+                    <img class="linnaeus" src="{{STATIC_URL}}img/icons/pin_yellow_revert_40.png" tooltip="{{data.tour.formation.linnaeus}}"/>
+                    <img class="capgemini" src="{{STATIC_URL}}img/icons/pin_blue_40.png" tooltip="{{data.tour.formation.capgemini}}"/>
                 </div>
 
 
             </div>
             <div id="projects">
-                <a href="http://www.cnieg.fr" target="_blank"><img class="cnieg" src="{{STATIC_URL}}img/logos/cnieg_medium.jpg"/></a>
-                <a href="https://www.yousendit.com/" target="_blank"><img src="{{STATIC_URL}}img/logos/yousendit_medium.jpg"/></a>
-                <a href="http://en.scut.edu.cn/" target="_blank"><img class="scut" src="{{STATIC_URL}}img/logos/scut_medium.jpg"/></a>
-                <a href="http://www.capgemini.com/" target="_blank"><img src="{{STATIC_URL}}img/logos/capgemini_medium.jpg"/></a>
+                <a href="http://www.cnieg.fr" target="_blank"><img class="cnieg" src="{{STATIC_URL}}img/logos/companies/cnieg_medium.jpg"/></a>
+                <a href="https://www.yousendit.com/" target="_blank"><img src="{{STATIC_URL}}img/logos/companies/yousendit_medium.jpg"/></a>
+                <a href="http://en.scut.edu.cn/" target="_blank"><img class="scut" src="{{STATIC_URL}}img/logos/schools/scut_medium.jpg"/></a>
+                <a href="http://www.capgemini.com/" target="_blank"><img src="{{STATIC_URL}}img/logos/companies/capgemini_medium.jpg"/></a>
             </div>
         </div>
 
         <div class="slide" style="display: none;">
-            <h1>{{ data.construction }}</h1>
-            <img src="{{STATIC_URL}}img/background/barrier.png"/>
+            <div id="technologies">
+                <a href="http://www.oracle.com/technetwork/java/index.html" target="_blank"><img tooltip="{{data.tour.technologies.java}}" class="java" src="{{STATIC_URL}}img/logos/technologies/java_v.jpg"/></a>
+                <a href="http://msdn.microsoft.com/en-us/library/618ayhy6.aspx" target="_blank"><img tooltip="{{data.tour.technologies.csharp}}" class="csharp" src="{{STATIC_URL}}img/logos/technologies/csharpdotnet.png"/></a>
+                <a href="http://tomcat.apache.org/" target="_blank"><img tooltip="{{data.tour.technologies.tomcat}}" class="tomcat" src="{{STATIC_URL}}img/logos/technologies/tomcat.jpg"/></a>
+                <a href="http://www.oracle.com/index.html" target="_blank"><img tooltip="{{data.tour.technologies.oracle}}" class="oracle" src="{{STATIC_URL}}img/logos/technologies/oracle.jpg"/></a>
+                <a href="http://www.hibernate.org/" target="_blank"><img tooltip="{{data.tour.technologies.hibernate}}" class="hibernate" src="{{STATIC_URL}}img/logos/technologies/hibernate.png"/></a>
+                <a href="http://www.springsource.org/" target="_blank"><img tooltip="{{data.tour.technologies.spring}}" class="spring" src="{{STATIC_URL}}img/logos/technologies/spring.jpg"/></a>
+                <a href="http://www.mysql.com/" target="_blank"><img tooltip="{{data.tour.technologies.mysql}}" class="mysql" src="{{STATIC_URL}}img/logos/technologies/mysql.jpg"/></a>
+                <a href="http://code.google.com/intl/fr-FR/webtoolkit/" target="_blank"><img tooltip="{{data.tour.technologies.gwt}}" class="gwt" src="{{STATIC_URL}}img/logos/technologies/gwt.png"/></a>
+                <a href="http://www.adobe.com/products/flex.html" target="_blank"><img tooltip="{{data.tour.technologies.flex}}" class="flex" src="{{STATIC_URL}}img/logos/technologies/flex.jpg"/></a>
+                <a href="http://www.w3.org/TR/html5/" target="_blank"><img tooltip="{{data.tour.technologies.html5}}" class="html5" src="{{STATIC_URL}}img/logos/technologies/html5.png"/></a>
+                <a href="http://www.w3schools.com/js/" target="_blank"><img tooltip="{{data.tour.technologies.javascript}}" class="javascript" src="{{STATIC_URL}}img/logos/technologies/javascript.png"/></a>
+                <a href="http://python.org/" target="_blank"><img tooltip="{{data.tour.technologies.python}}" class="python" src="{{STATIC_URL}}img/logos/technologies/python.png"/></a>
+                <a href="https://www.djangoproject.com/" target="_blank"><img tooltip="{{data.tour.technologies.django}}" class="django" src="{{STATIC_URL}}img/logos/technologies/django.png"/></a>
+            </div>
         </div>
 
         <div class="slide" style="display: none;">
-            <h1>{{ data.construction }}</h1>
-            <img src="{{STATIC_URL}}img/background/barrier.png"/>
+            <div id="international">
+                <img tooltip="{{data.tour.international.france}}" class="france" src="{{STATIC_URL}}img/flags/france.png"/>
+                <img tooltip="{{data.tour.international.china}}" class="china" src="{{STATIC_URL}}img/flags/china.png"/>
+                <img tooltip="{{data.tour.international.sweden}}" class="sweden bottom" src="{{STATIC_URL}}img/flags/sweden.png"/>
+                <img tooltip="{{data.tour.international.usa}}" class="usa bottom" src="{{STATIC_URL}}img/flags/usa.png"/>
+            </div>
         </div>
 
         <div class="slide" style="display: none;">
-            <h1>{{ data.construction }}</h1>
-            <img src="{{STATIC_URL}}img/background/barrier.png"/>
+            <div id="sports">
+                <img tooltip="{{data.tour.sports.rink}}" class="rink" src="{{STATIC_URL}}img/pictures/rink_hockey.jpg"/>
+                <img tooltip="{{data.tour.sports.ice}}" class="ice" src="{{STATIC_URL}}img/pictures/ice_hockey.jpg"/>
+                <img tooltip="{{data.tour.sports.ski}}" class="ski" src="{{STATIC_URL}}img/pictures/ski.jpg"/>
+                <img tooltip="{{data.tour.sports.golf}}" class="golf" src="{{STATIC_URL}}img/pictures/golf.jpg"/>
+                <img tooltip="{{data.tour.sports.training}}" class="training" src="{{STATIC_URL}}img/pictures/training.jpg"/>
+                <img tooltip="{{data.tour.sports.roller}}" class="roller" src="{{STATIC_URL}}img/pictures/roller.jpg"/>
+                <img tooltip="{{data.tour.sports.skydiving}}" class="skydiving" src="{{STATIC_URL}}img/pictures/skydiving.jpg"/>
+                <img tooltip="{{data.tour.sports.bungee_jumping}}" class="bungee_jumping" src="{{STATIC_URL}}img/pictures/bungee_jumping.png"/>
+            </div>
         </div>
     </div>
 </div>

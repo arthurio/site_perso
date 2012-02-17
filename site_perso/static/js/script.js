@@ -315,6 +315,8 @@ $(document).ready(function() {
         $('#take_tour h2').html(data.home.take_tour);
     }
 
+// TOUR
+
     var slider_init = false;
     $('#take_tour').click(function() {
         hideRight('tour');
@@ -326,49 +328,6 @@ $(document).ready(function() {
         }
         initArrows();
     });
-
-    $('#tour_content #pins img').mouseover(function (e) {
-        if (this.height == 40) {
-            var src = $(this).attr('src').split('_40');
-            $(this).attr('src', src[0]+'_60'+src[1]);
-            $(this).animate({
-                height: '60',
-                top: '-=10',
-                left: '-=10'
-            }, 300, function() {
-                // Animation complete.
-            });
-        }
-    });
-
-    $('#tour_content #pins img').mouseout(function (e) {
-        var src = $(this).attr('src').split('_60');
-        if (src.length == 2) {
-            $(this).attr('src', src[0]+'_40'+src[1]);
-            $(this).animate({
-                height: '40',
-                top: '+=10',
-                left: '+=10'
-            }, 300, function() {
-                // Animation complete.
-            }); 
-        }
-    });
-
-        
-// TOUR
-
-    function updateTour(data) {
-        $('#tour li').html(function(source){
-            $(this).html(data.tour.menu[source]);
-        });
-        $('#tour_content h1').html(data.construction);
-        $('#pins img').attr('tooltip', function() {
-            return data.tour.tooltip[$(this).attr('class')];
-        });
-
-        bindTooltip();
-    }
 
     function initArrows() {
         $(document).bind('keydown', setArrowHover);
@@ -388,11 +347,68 @@ $(document).ready(function() {
         $('#tour img').removeClass('hover');
     }
 
-    function bindTooltip() {
-        $('#pins img').tipTip({attribute: "tooltip",defaultPosition:"top", maxWidth: '255px', edgeOffset: 9});
+    var tour = {
+        formation: {attribute: "tooltip", defaultPosition:"top", maxWidth: '255px', edgeOffset: 9},
+        technologies: {attribute: "tooltip", maxWidth: '255px', edgeOffset: 0},
+        international: {attribute: "tooltip", maxWidth: '255px', edgeOffset: 0},
+        sports: {attribute: "tooltip", maxWidth: '255px', edgeOffset: 0},
+    };
+
+    function updateTour(data) {
+        $('#tour li').html(function(source){
+            $(this).html(data.tour.menu[source]);
+        });
+        $('#tour_content h1').html(data.construction);
+
+        $.each(tour, function(key, value) {
+            $('#'+key+' img').attr('tooltip', function() {
+                return data.tour[key][$(this).attr('class').split(' ')[0]];
+            });
+            bindTooltip(key, value);
+        });
     }
 
-    bindTooltip();
+    function bindTooltip(id, params) {
+        $('#'+id+' img').tipTip(params);
+    }
+
+    function bindAllTooltip() {
+        $.each(tour, function(key, value) {
+            bindTooltip(key, value);
+        });
+    }
+
+    // initialize the tooltips
+    bindAllTooltip();
+
+    // FORMATION
+    $('#tour_content #formation img').mouseover(function (e) {
+        if (this.height == 40) {
+            var src = $(this).attr('src').split('_40');
+            $(this).attr('src', src[0]+'_60'+src[1]);
+            $(this).animate({
+                height: '60',
+                top: '-=10',
+                left: '-=10'
+            }, 300, function() {
+                // Animation complete.
+            });
+        }
+    });
+
+    $('#tour_content #formation img').mouseout(function (e) {
+        var src = $(this).attr('src').split('_60');
+        if (src.length == 2) {
+            $(this).attr('src', src[0]+'_40'+src[1]);
+            $(this).animate({
+                height: '40',
+                top: '+=10',
+                left: '+=10'
+            }, 300, function() {
+                // Animation complete.
+            }); 
+        }
+    });
 
 // FOOTER
     $('#footer').show('slide',{'direction':'down'},1000);

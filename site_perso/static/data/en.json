@@ -30,16 +30,48 @@
         "menu": [
             "Education",
             "Technologies",
-            "Trips",
-            "Sport"
+            "International",
+            "Sports"
         ],
-        "tooltip": {
+        "formation": {
             "cnieg": "End of studies internship. Duration: 10 days. Technologies: Java, GWT, Spring, Hibernate, Oracle.",
             "ysi": "4th year project. Duration: 1 year. Technologies: C#, Microsoft Exchange, Windows server 2003.",
             "scut": "End of 4th year internship. Duration: 3 months. Technologies: NetLogo peer-to-peer network modelisation.",
             "linnaeus": "Erasmus Semester 9. Duration: 5 months. Technologies: C#, Java, Web Services",
             "capgemini": "End of studies internship. Duration: 5 months. Technologies: Java, Oracle, Flex, Hibernate, Spring, FitNess, UML."
+        },
+        "technologies": {
+            "java": "Java",
+            "csharp": "C#",
+            "tomcat": "Apache Tomcat",
+            "oracle": "Oracle",
+            "hibernate": "Hibernate",
+            "spring": "Spring",
+            "mysql": "Mysql",
+            "gwt": "Google Web Toolkit",
+            "flex": "Adobe Flex",
+            "html5": "HTML5",
+            "javascript": "Javascript",
+            "python": "Python",
+            "django": "Django"
+        },
+        "international": {
+            "france": "France - Place of birth",
+            "china": "China - 3 months internship at South China University of Technology",
+            "usa": "United States of America - Current place of residence - Working at PunchTab",
+            "sweden": "Sweden - 9th Semester of Engineering school at Växjö University"
+        },
+        "sports": {
+            "rink": "Rink Hockey",
+            "ice": "Ice Hockey",
+            "ski": "Ski",
+            "golf": "Golf",
+            "training": "Coaching",
+            "roller": "Roller",
+            "skydiving": "Skydiving",
+            "bungee_jumping": "Bungee jumping"
         }
+
     },
     "construction":"Website under construction",
     "key_notification": {
