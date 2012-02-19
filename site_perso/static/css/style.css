@@ -213,13 +213,17 @@ button {
     font-weight:300;
 }
 
-#banner .intro{
+#banner .intro {
     position: absolute;
     width: 300px;
     height: 130px;
     font-size: 18px;
     right: 200px;
     top: 15px;
+}
+
+#banner .intro a {
+    display: block;
 }
 
 #banner .begining {

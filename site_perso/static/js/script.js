@@ -342,7 +342,7 @@ $(document).ready(function() {
     $('#nav li[name=home]').click();
 
     function updateHome(data) {
-        $('#bored').html(data.home.bored);
+        $('#tired').html(data.home.tired);
         $('#minutes').html(data.home.minutes);
         $('#take_tour h2').html(data.home.take_tour);
     }
@@ -380,7 +380,7 @@ $(document).ready(function() {
     }
 
     tour = {
-        formation: {attribute: "tooltip", defaultPosition:"top", maxWidth: '255px', edgeOffset: 9},
+        formation: {fadeIn: 100, fadeOut: 200, attribute: "tooltip", defaultPosition:"top", maxWidth: '255px', edgeOffset: 9},
         technologies: {attribute: "tooltip", maxWidth: '255px', edgeOffset: 0},
         international: {attribute: "tooltip", maxWidth: '255px', edgeOffset: 0},
         sports: {attribute: "tooltip", maxWidth: '255px', edgeOffset: 0}
