@@ -15,7 +15,7 @@ $(document).ready(function() {
         common_url = '/static/data/common.json',
         previous, send_email_clicked, tour,
         slide_tour, contact_fields, slider_init,
-        common_content;
+        common_content, key_lock = false;
 
     $('#flag_fr').click(function(){
         loadData(fr_url);
@@ -338,6 +338,7 @@ $(document).ready(function() {
     $('#nav li[name=home]').click(function() {
         $('#shortcuts').hide();
         hideId('home');
+        key_lock = true;
         showId('home');
     });
     $('#nav li[name=home]').click();
@@ -354,6 +355,7 @@ $(document).ready(function() {
     $('#take_tour').click(function() {
         $('#shortcuts').show();
         hideId('tour');
+        key_lock = true;
         showId('tour');
         if (!slider_init) {
             slider.current = 1;
@@ -435,6 +437,7 @@ $(document).ready(function() {
     $('#nav li[name=resume]').click(function() {
         $('#shortcuts').hide();
         hideId('resume');
+        key_lock = true;
         showId('resume');
     });
 
