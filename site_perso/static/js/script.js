@@ -427,8 +427,7 @@ $(document).ready(function() {
     // FORMATION
 
 // FOOTER
-//    $('#footer').show('slide',{'direction':'down'},1000);
-    $('#footer').show();
+    $('#footer').show('slide',{'direction':'down'},1000);
 
     function updateFooter(data) {
         $('#key_tour').html(data.key_notification.tour_move);
