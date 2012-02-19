@@ -18,19 +18,19 @@ html {
 div.twitter_follow {
     width: 50px;
     height: 50px;
-    background: url('../img/link/twitter_follow.png') no-repeat;
+    background: url('../img/links/twitter_follow.png') no-repeat;
 }
 
 div.facebook_pt {
     width: 50px;
     height: 50px;
-    background: url('../img/link/facebook_pt.png') no-repeat;
+    background: url('../img/links/facebook_pt.png') no-repeat;
 }
 
 div.punchtab_website {
-    width: 136px;
+    width: 166px;
     height: 50px;
-    background: url('../img/link/punchtab.png') no-repeat;
+    background: url('../img/links/punchtab_small.jpg') no-repeat;
 }
 
 a {
@@ -141,7 +141,7 @@ button {
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
-    background: url(../img/background/glossymetal.jpg) repeat;
+    background: url(../img/backgrounds/glossymetal.jpg) repeat;
 }
 
 #popup .content {
@@ -188,7 +188,7 @@ button {
 #banner {
     position:relative;
     height:200px;
-    background: url(../img/background/darkGray_noise_bg.png) repeat;
+    background: url(../img/backgrounds/darkGray_noise_bg.png) repeat;
 
 }
 
@@ -320,7 +320,7 @@ button {
 /*--------------------------------------------------*/
 
 #content {
-    background: url(../img/background/whiteNoise_bg.png) repeat;
+    background: url(../img/backgrounds/whiteNoise_bg.png) repeat;
     background-color: white;
     min-height: 449px;
 }
@@ -356,7 +356,7 @@ button {
     border-radius: 10px 10px 10px 10px;
     color: white;
     padding: 5px;
-    background: url(../img/background/darkGray_noise_bg.png) repeat;
+    background: url(../img/backgrounds/darkGray_noise_bg.png) repeat;
     width: 286px; 
     cursor: pointer;
     border: #0097C5 solid 1px;
@@ -630,6 +630,17 @@ button {
     position: absolute;
     cursor: pointer;
     height: 40px;
+    -webkit-transition: all .4s ease-out;
+    -moz-transition: all .4s ease-out;
+    -o-transition: all .4s ease-out;
+    transition: all .4s ease-out;
+}
+
+#tour #tour_content .timeline #formation #pins img:hover {
+    -moz-transform: scale(1.35);
+    -webkit-transform: scale(1.35) translate3d(0, 0, 0);
+    -o-transform: scale(1.35) translate3d(0, 0, 0);
+    transform: scale(1.35) translate3d(0, 0, 0);
 }
 
 #tour #tour_content .timeline #formation #pins img.cnieg {
@@ -661,6 +672,26 @@ button {
     margin: 0 80px 0 75px;
 }
 
+/* EMPLOYMENT */
+
+#job div.header {
+    margin: 10px 0;
+    text-align: center;
+}
+
+#job img:hover { 
+    -moz-transform: scale(1.35);
+    -webkit-transform: scale(1.35) translate3d(0, 0, 0);
+    -o-transform: scale(1.35) translate3d(0, 0, 0);
+    transform: scale(1.35) translate3d(0, 0, 0);
+}
+
+#job img {
+    -webkit-transition: all .4s ease-out;
+    -moz-transition: all .4s ease-out;
+    -o-transition: all .4s ease-out;
+    transition: all .4s ease-out;
+}
 /* TECHNOLOGIES */
 
 #technologies {
@@ -838,7 +869,7 @@ button {
 
 #footer {
     display:none;
-    background: url(../img/background/blue_noise.png) transparent repeat;
+    background: url(../img/backgrounds/blue_noise.png) transparent repeat;
     overflow: hidden;
     padding-top: 4px;
     padding-right: 5px;

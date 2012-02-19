@@ -382,10 +382,10 @@ $(document).ready(function() {
     }
 
     tour = {
-        formation: {fadeIn: 100, fadeOut: 100, attribute: "tooltip", defaultPosition:"top", maxWidth: '255px', edgeOffset: 9},
-        technologies: {fadeIn: 100, fadeOut: 100, attribute: "tooltip", maxWidth: '255px', edgeOffset: 0},
-        international: {fadeIn: 100, fadeOut: 100, attribute: "tooltip", maxWidth: '255px', edgeOffset: 0},
-        sports: {fadeIn: 100, fadeOut: 100, attribute: "tooltip", maxWidth: '255px', edgeOffset: 0}
+        formation: {attribute: "tooltip", defaultPosition:"top", maxWidth: '255px', edgeOffset: 9},
+        technologies: {attribute: "tooltip", maxWidth: '255px', edgeOffset: 0},
+        international: {attribute: "tooltip", maxWidth: '255px', edgeOffset: 0},
+        sports: {attribute: "tooltip", maxWidth: '255px', edgeOffset: 0}
     };
 
     function updateTour(data) {
@@ -423,33 +423,6 @@ $(document).ready(function() {
     bindAllTooltip();
 
     // FORMATION
-    $('#tour_content #formation img').mouseover(function (e) {
-        if (this.height == 40) {
-            var src = $(this).attr('src').split('_40');
-            $(this).attr('src', src[0]+'_60'+src[1]);
-            $(this).animate({
-                height: '60',
-                top: '-=10',
-                left: '-=10'
-            }, 300, function() {
-                // Animation complete.
-            });
-        }
-    });
-
-    $('#tour_content #formation img').mouseout(function (e) {
-        var src = $(this).attr('src').split('_60');
-        if (src.length == 2) {
-            $(this).attr('src', src[0]+'_40'+src[1]);
-            $(this).animate({
-                height: '40',
-                top: '+=10',
-                left: '+=10'
-            }, 300, function() {
-                // Animation complete.
-            }); 
-        }
-    });
 
 // FOOTER
     $('#footer').show('slide',{'direction':'down'},1000);
