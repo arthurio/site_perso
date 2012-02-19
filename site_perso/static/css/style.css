@@ -842,10 +842,15 @@ button {
     overflow: hidden;
     padding-top: 4px;
     padding-right: 5px;
+    height: 30px;
 }
 
 div.fb-like {
     bottom: 2px;
+}
+
+#footer #shortcuts {
+    display: none;
 }
 
 #footer .socials_container {

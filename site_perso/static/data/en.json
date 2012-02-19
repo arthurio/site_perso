@@ -77,7 +77,6 @@
     },
     "construction":"Website under construction",
     "key_notification": {
-        "tour":"(Tour)",
         "tour_move":"Move",
         "contact":"(Contact)",
         "contact_popup":"Close the popup"

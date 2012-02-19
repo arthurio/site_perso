@@ -336,6 +336,7 @@ $(document).ready(function() {
     
 // HOME
     $('#nav li[name=home]').click(function() {
+        $('#shortcuts').hide();
         hideId('home');
         showId('home');
     });
@@ -351,6 +352,7 @@ $(document).ready(function() {
 
     slider_init = false;
     $('#take_tour').click(function() {
+        $('#shortcuts').show();
         hideId('tour');
         showId('tour');
         if (!slider_init) {
@@ -380,10 +382,10 @@ $(document).ready(function() {
     }
 
     tour = {
-        formation: {fadeIn: 100, fadeOut: 200, attribute: "tooltip", defaultPosition:"top", maxWidth: '255px', edgeOffset: 9},
-        technologies: {attribute: "tooltip", maxWidth: '255px', edgeOffset: 0},
-        international: {attribute: "tooltip", maxWidth: '255px', edgeOffset: 0},
-        sports: {attribute: "tooltip", maxWidth: '255px', edgeOffset: 0}
+        formation: {fadeIn: 100, fadeOut: 100, attribute: "tooltip", defaultPosition:"top", maxWidth: '255px', edgeOffset: 9},
+        technologies: {fadeIn: 100, fadeOut: 100, attribute: "tooltip", maxWidth: '255px', edgeOffset: 0},
+        international: {fadeIn: 100, fadeOut: 100, attribute: "tooltip", maxWidth: '255px', edgeOffset: 0},
+        sports: {fadeIn: 100, fadeOut: 100, attribute: "tooltip", maxWidth: '255px', edgeOffset: 0}
     };
 
     function updateTour(data) {
@@ -453,12 +455,12 @@ $(document).ready(function() {
     $('#footer').show('slide',{'direction':'down'},1000);
 
     function updateFooter(data) {
-        $('#key_tour').html(data.key_notification.tour_move+'&nbsp;'+data.key_notification.tour);
-        $('#key_popup').html(data.key_notification.contact_popup+'&nbsp;'+data.key_notification.contact);
+        $('#key_tour').html(data.key_notification.tour_move);
     }
 
 // RESUME
     $('#nav li[name=resume]').click(function() {
+        $('#shortcuts').hide();
         hideId('resume');
         showId('resume');
     });
