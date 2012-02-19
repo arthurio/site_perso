@@ -9,9 +9,13 @@
 //Begin Javascript
 $(document).ready(function() {
 
-    var fr_url = '/static/data/fr.json';
-    var en_url =  '/static/data/en.json';
-    var common_url = '/static/data/common.json';
+
+    var fr_url = '/static/data/fr.json',
+        en_url =  '/static/data/en.json',
+        common_url = '/static/data/common.json',
+        previous, send_email_clicked, tour,
+        slide_tour, contact_fields, slider_init,
+        common_content;
 
     $('#flag_fr').click(function(){
         loadData(fr_url);
@@ -59,6 +63,33 @@ $(document).ready(function() {
         $('#nav li[name=resume]').html(data.nav[1]);
     }
 
+    // COMMON   
+
+    common_content = {
+        home: ['left', 'right'],
+        resume: ['right', 'left'],
+        tour: ['right', 'left']
+    };
+
+    function hideId(id) {
+        if (!$('#'+id).is(":visible")){
+            $.each(common_content, function (key, value) {
+                if ($('#'+key).is(":visible")) {
+                    var direction = common_content[id][0] === value[0] ? value[1] : value[0];
+                    $('#'+key).hide('slide', {'direction':direction},1000);
+                }
+            });
+        }
+        $(document).unbind('keydown', setArrowHover);
+    }
+
+    function showId(id) {
+        if (!$('#'+id).is(":visible") || key_lock){
+            $('#'+id).show('slide',{'direction':common_content[id][0]},1000);
+            key_lock = false;
+        }
+    }
+
     // POPUP
 
     POPUP = {
@@ -87,7 +118,7 @@ $(document).ready(function() {
         setContent: function(content) {
             $('#popup .content').html(content);
         }
-    }
+    };
 
 
     function removeEmbed() {
@@ -100,17 +131,18 @@ $(document).ready(function() {
     // INTRO
     setInterval(changeIntro, 7000);
 
-    var previous = 0;
+    previous = 0;
 
     changeIntro();
 
     function changeIntro() {
-         var random = Math.floor(Math.random()*intro.length);
+         var random = Math.floor(Math.random()*intro.length),
+             intro_text;
          if (random == previous) {
              random = (previous + 1) % intro.length;
          }
          previous = random;
-         var intro_text = $('#banner .intro p');
+         intro_text = $('#banner .intro p');
          intro_text.fadeOut(1000,function(){
              intro_text.html(intro[random]);
              intro_text.fadeIn(3000);
@@ -150,7 +182,7 @@ $(document).ready(function() {
         });
 
         $('form[name=mail] input[type=text]').blur(function(){
-            if (this.value == '') {
+            if (this.value === '') {
                 this.value=contact_fields[this.name];
                 $(this).addClass('empty error');
                 $(this).removeClass('success');
@@ -177,7 +209,7 @@ $(document).ready(function() {
         });
 
         $('form[name=mail] textarea').blur(function(){
-            if (this.value == '') {
+            if (this.value === '') {
                 this.value = contact_fields[this.name];
                 $(this).addClass('empty error');
                 $(this).removeClass('success');
@@ -195,7 +227,7 @@ $(document).ready(function() {
 
         });
 
-        var send_email_clicked = false;
+        send_email_clicked = false;
         $('form[name=mail]').submit(function(){
 
             if (!send_email_clicked) {
@@ -216,7 +248,7 @@ $(document).ready(function() {
                 
 
                 $.post(action, $(this).serialize(),function(json) {
-                    if (json.status == true) {
+                    if (json.status === true) {
                         POPUP.send();
                         cleanEmailForm();
                     } else {
@@ -230,7 +262,7 @@ $(document).ready(function() {
                                 field = $('form[name=mail] input[name='+error+']');
                             }
                             field.addClass('error');
-                            if (field.val() == ""){
+                            if (field.val() === ""){
                                 field.val(contact_fields[error]);
                                 field.addClass('empty');
                             } else {
@@ -246,7 +278,7 @@ $(document).ready(function() {
                                 hideNotification(error);
                             });
 
-                            $('form[name=mail] img[name='+error+'].error').show()
+                            $('form[name=mail] img[name='+error+'].error').show();
 
                         });
                         send_email_clicked = false;
@@ -273,12 +305,12 @@ $(document).ready(function() {
 
     // CONTACT
 
-    var contact_fields = {
+    contact_fields = {
         'first_name':$('form[name=mail] input[name=first_name]').val(),
         'last_name':$('form[name=mail] input[name=last_name]').val(),
         'email':$('form[name=mail] input[name=email]').val(),
         'message':$('form[name=mail] textarea[name=message]').text()
-    }
+    };
 
     function updateContact(data) {
         $.each(contact_fields, function(field,i) {
@@ -304,8 +336,8 @@ $(document).ready(function() {
     
 // HOME
     $('#nav li[name=home]').click(function() {
-        hideRight('home');
-        showRight($('#home'));
+        hideId('home');
+        showId('home');
     });
     $('#nav li[name=home]').click();
 
@@ -317,10 +349,10 @@ $(document).ready(function() {
 
 // TOUR
 
-    var slider_init = false;
+    slider_init = false;
     $('#take_tour').click(function() {
-        hideRight('tour');
-        showRight($('#tour'));
+        hideId('tour');
+        showId('tour');
         if (!slider_init) {
             slider.current = 1;
             slider.init();
@@ -347,11 +379,11 @@ $(document).ready(function() {
         $('#tour img').removeClass('hover');
     }
 
-    var tour = {
+    tour = {
         formation: {attribute: "tooltip", defaultPosition:"top", maxWidth: '255px', edgeOffset: 9},
         technologies: {attribute: "tooltip", maxWidth: '255px', edgeOffset: 0},
         international: {attribute: "tooltip", maxWidth: '255px', edgeOffset: 0},
-        sports: {attribute: "tooltip", maxWidth: '255px', edgeOffset: 0},
+        sports: {attribute: "tooltip", maxWidth: '255px', edgeOffset: 0}
     };
 
     function updateTour(data) {
@@ -420,8 +452,8 @@ $(document).ready(function() {
 
 // RESUME
     $('#nav li[name=resume]').click(function() {
-        hideRight('resume');
-        showRight($('#resume'));
+        hideId('resume');
+        showId('resume');
     });
 
     
@@ -430,40 +462,4 @@ $(document).ready(function() {
         $('#resume .pdf_container label[name=en]').html(data.pdf.en);
         $('#resume .pdf_container label[name=fr]').html(data.pdf.fr);
     }
-
-
-// COMMON   
-
-    var content = ['home','resume','tour'];
-    function hideRight(element) {
-        if (!$('#'+element).is(":visible")){
-            for (id in content) {
-                if ($('#'+content[id]).is(":visible")) {
-                    $('#'+content[id]).hide('slide',{'direction':'right'},1000);
-                }
-            }
-        }
-        $(document).unbind('keydown', setArrowHover);
-    }
-
-    function showRight(element) {
-        if (!element.is(":visible") || key_lock){
-            element.show('slide',{'direction':'left'},1000);
-            key_lock = false;
-        }
-    }
-
-    function showLeft(element) {
-        if (!element.is(":visible") || key_lock){
-            element.show('slide',{'direction':'right'},1000);
-            key_lock = false;
-        }
-    }
-
-    function simpleHide(ids) {
-        $.each(ids, function(i) {
-            $('#'+ids[i]).hide();
-        });
-    }
-
 });
