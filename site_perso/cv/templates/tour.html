@@ -17,7 +17,7 @@
                 <a href="http://www.polytech.univ-nantes.fr/" target="_blank"><img class="polytech" src="{{STATIC_URL}}img/logos/schools/polytech_medium.jpg"/></a>
                 <a href="http://lnu.se/?l=en" target="_blank"><img class="linnaeus" src="{{STATIC_URL}}img/logos/schools/linnaeus_medium.png"/></a>
             </div>
-            <div id="line">
+            <div id="formation">
                 <div class="short">
                     <label>2006</label>
                     <label>2007</label>
@@ -31,13 +31,13 @@
                     <label>2011</label>
                 </div>
 
-                <div class="continue iut"></div>
-                <div class="continue polytech"></div>
-                <div class="continue linnaeus"></div>
-                <div class="continue polytech-end"></div>
+                <div class="iut continue data" tooltip="{{data.tour.formation.iut}}"></div>
+                <div class="polytech continue data" tooltip="{{data.tour.formation.polytech}}"></div>
+                <div class="linnaeus continue"></div>
+                <div class="polytech polytech-end continue data" tooltip="{{data.tour.formation.polytech}}"></div>
                 <div class="dashed"></div>
                 
-                <div id="formation">
+                <div id="pins">
                     <img class="cnieg" src="{{STATIC_URL}}img/icons/pin_red_40.png" tooltip="{{data.tour.formation.cnieg}}"/>
                     <img class="ysi" src="{{STATIC_URL}}img/icons/pin_blue_40.png" tooltip="{{data.tour.formation.ysi}}"/>
                     <img class="scut" src="{{STATIC_URL}}img/icons/pin_blue_40.png" tooltip="{{data.tour.formation.scut}}"/>

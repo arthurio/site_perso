@@ -387,21 +387,28 @@ $(document).ready(function() {
     };
 
     function updateTour(data) {
-        $('#tour li').html(function(source){
+        $('#tour li').html(function (source){
             $(this).html(data.tour.menu[source]);
         });
         $('#tour_content h1').html(data.construction);
 
-        $.each(tour, function(key, value) {
+        $.each(tour, function (key, value) {
             $('#'+key+' img').attr('tooltip', function() {
                 return data.tour[key][$(this).attr('class').split(' ')[0]];
             });
+            $('#'+key+' .data').attr('tooltip', function() {
+                if (data.tour[key][$(this).attr('class').split(' ')[0]] != "undefined") {
+                    return data.tour[key][$(this).attr('class').split(' ')[0]];
+                }
+            });
+
             bindTooltip(key, value);
         });
     }
 
     function bindTooltip(id, params) {
         $('#'+id+' img').tipTip(params);
+        $('#'+id+' .data').tipTip(params);
     }
 
     function bindAllTooltip() {

@@ -34,6 +34,8 @@
             "Sports"
         ],
         "formation": {
+            "iut": "Higher institute of Computer Sciences of Nantes University, France. Duration: 2 years. Degree in Computer Sciences: 07-01-2008.",
+            "polytech": "Polytechnic School of the University of Nantes. Duration: 3 years. Software Engineer Degree: 07-08-2011.",
             "cnieg": "End of studies internship. Duration: 10 days. Technologies: Java, GWT, Spring, Hibernate, Oracle.",
             "ysi": "4th year project. Duration: 1 year. Technologies: C#, Microsoft Exchange, Windows server 2003.",
             "scut": "End of 4th year internship. Duration: 3 months. Technologies: NetLogo peer-to-peer network modelisation.",

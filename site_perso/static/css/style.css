@@ -570,77 +570,82 @@ button {
     margin: 0 105px 0 110px;
 }
 
-#tour #tour_content .timeline #line {
+#tour #tour_content .timeline #formation {
     margin: 50px 0;
     display: inline-block;
 }
 
-#tour #tour_content .timeline #line .short label {
+#tour #tour_content .timeline #formation .short label {
     margin-right: 41px;
 }
 
-#tour #tour_content .timeline #line .large label {
+#tour #tour_content .timeline #formation .large label {
     margin-right: 345px;
 }
 
-#tour #tour_content .timeline #line div {
+#tour #tour_content .timeline #formation div {
     display: inline-block;
 }
 
-#tour #tour_content .timeline #line div.continue.iut {
+#tour #tour_content .timeline #formation div.continue {
+    cursor: pointer;
+}
+
+#tour #tour_content .timeline #formation div.continue.iut {
     border-bottom: 7px solid #BD3129;
     width: 16.5%
 }
 
-#tour #tour_content .timeline #line div.continue.polytech {
+#tour #tour_content .timeline #formation div.continue.polytech {
     border-bottom: 7px solid #0097C5;
     width: 41.5%;
 }
 
-#tour #tour_content .timeline #line div.continue.linnaeus {
+#tour #tour_content .timeline #formation div.continue.linnaeus {
     border-bottom: 7px solid #FCFC00;
     width: 17.5%;
 }
 
-#tour #tour_content .timeline #line div.continue.polytech-end {
+#tour #tour_content .timeline #formation div.continue.polytech-end {
+    margin: 0;
     border-bottom: 7px solid #0097C5;
     width: 17.5%;
 }
 
-#tour #tour_content .timeline #line div.dashed {
+#tour #tour_content .timeline #formation div.dashed {
     border-bottom: 7px dotted black;
     width: 3%;
 }
 
-#tour #tour_content .timeline #line #formation {
+#tour #tour_content .timeline #formation #pins {
     position: absolute;
     left: 0;
 }
 
-#tour #tour_content .timeline #line #formation img {
+#tour #tour_content .timeline #formation #pins img {
     position: absolute;
     cursor: pointer;
     height: 40px;
 }
 
-#tour #tour_content .timeline #line #formation img.cnieg {
+#tour #tour_content .timeline #formation #pins img.cnieg {
     left: 140px;
 }
 
-#tour #tour_content .timeline #line #formation img.ysi {
+#tour #tour_content .timeline #formation #pins img.ysi {
     left: 355px;
 }
 
-#tour #tour_content .timeline #line #formation img.scut {
+#tour #tour_content .timeline #formation #pins img.scut {
     left: 570px;
 }
 
-#tour #tour_content .timeline #line #formation img.linnaeus {
+#tour #tour_content .timeline #formation #pins img.linnaeus {
     left: 735px;
     top: -15px;
 }
 
-#tour #tour_content .timeline #line #formation img.capgemini {
+#tour #tour_content .timeline #formation #pins img.capgemini {
     left: 930px;
 }
 

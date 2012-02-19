@@ -34,6 +34,8 @@
             "Sports"
         ],
         "formation": {
+            "iut": "IUT informatique de Nantes, France. Durée: 2 ans. Diplôme de DUT Informatique: 01/07/2008.",
+            "polytech": "École Polytechnique de l'Université de Nantes, France. Durée: 3 ans. Diplôme d'Ingénieur en Informatique: 08/07/2011.",
             "cnieg": "Stage de fin d'études. Durée: 10 jours. Technologies: Java, GWT, Spring, Hibernate, Oracle.",
             "ysi": "Projet de 4ème année. Durée: 1 an. Technologies: C#, Microsoft Exchange, Windows server 2003.",
             "scut": "Stage de fin de 4ème année. Durée: 3 mois. Technologies: Modélisation d'un réseau pair-à-pair NetLogo.",
