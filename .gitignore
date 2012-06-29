@@ -13,11 +13,6 @@ mobile/TitaniumWorkspace/.metadata/
 .fastdev.lock
 build/
 
-# Build folder #
-############
-mobile/SolidPunch.xcodeproj/*.mode1v3
-mobile/SolidPunch.xcodeproj/*.pbxuser
-
 # Packages #
 ############
 # it's better to unpack these files and commit the raw source
@@ -42,3 +37,5 @@ mobile/SolidPunch.xcodeproj/*.pbxuser
 
 *.swp
 *.pyc
+
+site_perso/settings/prod.py
